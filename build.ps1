@@ -45,6 +45,9 @@ $fonts = @{
 foreach ($f in $fonts.Keys) {
   Copy-Item (Join-Path $fontSrc $f) (Join-Path $docs "assets\fonts\$($fonts[$f])")
 }
+# The Open Font License lets these be shared freely, on condition its text
+# travels with them. Add a font above and its copyright line goes in this file.
+Copy-Item (Join-Path $here 'src\fonts-OFL.txt') (Join-Path $docs 'assets\fonts\OFL.txt')
 
 # ---- icons ------------------------------------------------------------------
 $ffmpeg = Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages" -Recurse -Filter ffmpeg.exe -ErrorAction SilentlyContinue |
