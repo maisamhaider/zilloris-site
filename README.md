@@ -99,6 +99,20 @@ needs touching - no Remote Config, no new build.
 - A policy's text is never retyped by hand from memory; change only what changed.
 - About pages follow the claim rules: only what the shipped build does.
 
+### The apps read these pages, they do not only link to them
+
+- **Manuscript** downloads the page and sets it in its own type (`domain/Legal.kt`).
+  It needs the classes the documents are written with - `num`, `effective`, `intro`,
+  `short`, `warning`, `legalese` - which Blogger had stripped and
+  `tools/restore-manuscript-classes.pl` put back. Keep them when editing, or the
+  app falls back to the copy bundled in the build.
+- **One Page** reads Blogger's JSON feed shape (`domain/LegalFeed.kt`), so the build
+  also writes `docs/feeds/posts/default` from the same content. Its sections are the
+  `<h2>`s, and the "Updated: 5 September 2026" line must stay in the first paragraph -
+  that is where the app reads the date from.
+- Both fall back silently to older text baked into the app if a page stops parsing,
+  so check after any structural change, not only that the page looks right.
+
 **Switching an app to these addresses** (once per app): put the new Privacy URL in
 Play Console (App content → Privacy policy; takes effect at once), and the new
 links in the app's next build. Apps that bundle their own copy of the policy
