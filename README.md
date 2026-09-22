@@ -29,8 +29,8 @@ powershell -ExecutionPolicy Bypass -File serve.ps1    # preview at http://localh
 
 - **Add or change an app:** edit `apps.json`, rebuild. Every line is public, so it
   follows the claim rules - say what the app is for, never a feature the shipped
-  build does not have. The list follows the six-app marketing list: an app joins
-  when its time comes.
+  build does not have. Only apps with a build on Google Play are shown: set
+  `onPlay` to `true` the day an app's first build goes up, and rebuild.
 - **Change the page:** edit `src/`, rebuild. Never edit `docs/`; the build deletes it.
 
 `docs/` is committed because GitHub Pages can only serve what is in the repo. The

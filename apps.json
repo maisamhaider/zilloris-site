@@ -1,9 +1,10 @@
 {
-  "note": "The apps on zilloris.com. The list follows the owner's six-app marketing list: an app joins when its time comes, not when it exists. Every line here is public, so it follows the claim rules - say what the app is for, never promise a feature the shipped build does not have. Icon paths are relative to C:\\my\\Claude. 'status' is one of testing, soon, dev, design.",
+  "note": "The apps on zilloris.com. Only apps with a build uploaded to Google Play are shown (owner's rule, 22 Sep 2026): set onPlay to true the day an app's first build goes up, and it appears on the next build. The rest stay listed here so nothing has to be rewritten. Every line is public, so it follows the claim rules - say what the app is for, never promise a feature the shipped build does not have. Icon paths are relative to C:\\my\\Claude. 'status' is one of testing, soon, dev, design.",
   "apps": [
     {
       "id": "one-page",
       "name": "One Page",
+      "onPlay": true,
       "line": "Read one page a day.",
       "status": "testing",
       "statusText": "In testing on Google Play",
@@ -17,6 +18,7 @@
     {
       "id": "manuscript",
       "name": "Manuscript",
+      "onPlay": true,
       "line": "Write one page a day until the draft is done.",
       "status": "testing",
       "statusText": "In testing on Google Play",
@@ -30,9 +32,10 @@
     {
       "id": "note-bolt",
       "name": "Note Bolt",
+      "onPlay": true,
       "line": "A notepad and to-do lists.",
-      "status": "soon",
-      "statusText": "Coming soon to Google Play",
+      "status": "testing",
+      "statusText": "In testing on Google Play",
       "accent": "#56C2DC",
       "icon": "note-taking/Store Asset NoteBolt/play-ready/icon_512_playstore.png",
       "links": [
@@ -43,6 +46,7 @@
     {
       "id": "nightbook",
       "name": "Nightbook",
+      "onPlay": false,
       "line": "A dream journal for the morning.",
       "status": "dev",
       "statusText": "In development",
@@ -54,6 +58,7 @@
     {
       "id": "sabr",
       "name": "Sabr",
+      "onPlay": false,
       "line": "Quit one habit, build another.",
       "status": "dev",
       "statusText": "In development",
@@ -64,6 +69,7 @@
     {
       "id": "atomiser",
       "name": "Atomiser",
+      "onPlay": false,
       "line": "A shelf for your perfumes.",
       "status": "design",
       "statusText": "In design",

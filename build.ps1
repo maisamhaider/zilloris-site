@@ -55,6 +55,11 @@ $ffmpeg = Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages" -Recurse -
 $data = Get-Content (Join-Path $here 'apps.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $warnings = @()
 
+# Only apps with a build on Google Play appear on the site (owner's rule, 22 Sep 2026).
+$hidden = @($data.apps | Where-Object { -not $_.onPlay } | ForEach-Object { $_.name })
+$data.apps = @($data.apps | Where-Object { $_.onPlay })
+if ($hidden.Count) { $warnings += "Not on Play yet, so hidden: $($hidden -join ', ')" }
+
 foreach ($a in $data.apps) {
   if (-not $a.icon) { $warnings += "$($a.name): no icon file yet - shown as a letter"; continue }
   $src = Join-Path $root $a.icon
