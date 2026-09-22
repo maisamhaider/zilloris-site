@@ -1,0 +1,75 @@
+{
+  "note": "The apps on zilloris.com. The list follows the owner's six-app marketing list: an app joins when its time comes, not when it exists. Every line here is public, so it follows the claim rules - say what the app is for, never promise a feature the shipped build does not have. Icon paths are relative to C:\\my\\Claude. 'status' is one of testing, soon, dev, design.",
+  "apps": [
+    {
+      "id": "one-page",
+      "name": "One Page",
+      "line": "Read one page a day.",
+      "status": "testing",
+      "statusText": "In testing on Google Play",
+      "accent": "#F7E339",
+      "icon": "one-page/store/icon-512.png",
+      "links": [
+        { "label": "Privacy", "url": "https://zilloris.blogspot.com/2026/09/one-page-privacy-policy.html" },
+        { "label": "Terms", "url": "https://zilloris.blogspot.com/2026/09/one-page-terms-of-use.html" }
+      ]
+    },
+    {
+      "id": "manuscript",
+      "name": "Manuscript",
+      "line": "Write one page a day until the draft is done.",
+      "status": "testing",
+      "statusText": "In testing on Google Play",
+      "accent": "#C8332B",
+      "icon": "manuscript/store/graphics/ic_play_512.png",
+      "links": [
+        { "label": "Privacy", "url": "https://zilloris.blogspot.com/2026/09/manuscript-privacy-policy.html" },
+        { "label": "Terms", "url": "https://zilloris.blogspot.com/2026/09/manuscript-terms-of-use.html" }
+      ]
+    },
+    {
+      "id": "note-bolt",
+      "name": "Note Bolt",
+      "line": "A notepad and to-do lists.",
+      "status": "soon",
+      "statusText": "Coming soon to Google Play",
+      "accent": "#56C2DC",
+      "icon": "note-taking/Store Asset NoteBolt/play-ready/icon_512_playstore.png",
+      "links": [
+        { "label": "Privacy", "url": "https://zilloris.blogspot.com/2026/09/note-taking-privacy-policy.html" },
+        { "label": "Terms", "url": "https://zilloris.blogspot.com/2026/09/note-taking-terms-and-conditions.html" }
+      ]
+    },
+    {
+      "id": "nightbook",
+      "name": "Nightbook",
+      "line": "A dream journal for the morning.",
+      "status": "dev",
+      "statusText": "In development",
+      "accent": "#7B6AD9",
+      "ground": "#332937",
+      "icon": "",
+      "links": []
+    },
+    {
+      "id": "sabr",
+      "name": "Sabr",
+      "line": "Quit one habit, build another.",
+      "status": "dev",
+      "statusText": "In development",
+      "accent": "#D89A2B",
+      "icon": "sabr/design/icon/export/store/play-store-512.png",
+      "links": []
+    },
+    {
+      "id": "atomiser",
+      "name": "Atomiser",
+      "line": "A shelf for your perfumes.",
+      "status": "design",
+      "statusText": "In design",
+      "accent": "#E39A2D",
+      "icon": "atomiser/design/icon/png/playstore-512.png",
+      "links": []
+    }
+  ]
+}
