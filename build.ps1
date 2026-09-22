@@ -158,7 +158,7 @@ foreach ($a in @($data.apps | Where-Object { $_.pages })) {
       # Drop leading lines that only repeat the title ("Manuscript", "Privacy Policy",
       # "Manuscript, by Zilloris"): the page heading and header already say them.
       $repeat = @($title, "$($a.name) $([char]0x00B7) by Zilloris") + ($title -split '\s+[\u2014\u2013-]\s+') | ForEach-Object { PlainText $_ }
-      while ($body -match '^\s*<(p|h2|h3)>(.*?)</\1>\s*') {
+      while ($body -match '^\s*<(p|h2|h3)\b[^>]*>(.*?)</\1>\s*') {
         if ($repeat -contains (PlainText $Matches[2])) { $body = $body.Substring($Matches[0].Length) } else { break }
       }
     }
