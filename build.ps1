@@ -3,9 +3,10 @@
 #   apps.json         which apps appear, and what each card says
 #   src/index.html    the page, with <!--APPS--> and friends filled in here
 #   src/site.css      the studio look (shared with the Shelf and the covers)
+#   content/<id>/     each app's About, Privacy and Terms (src/app-page.html + src/themes/)
 #
 # Icons come straight from each app's own repo, resized to 192px so the page
-# stays light; the fonts come from One Page's res/font. Nothing is fetched from
+# stays light; the fonts from the apps' own res/font. Nothing is fetched from
 # the internet, and nothing here costs money to host.
 #
 # docs/ is rebuilt from scratch every run: edit src/ and apps.json, never docs/.
@@ -29,6 +30,9 @@ foreach ($d in 'docs', 'docs\assets\fonts', 'docs\assets\icons') {
 Copy-Item (Join-Path $here 'src\site.css')    $docs
 Copy-Item (Join-Path $here 'src\404.html')    $docs
 Copy-Item (Join-Path $here 'src\favicon.svg') $docs
+Copy-Item (Join-Path $here 'src\app-base.css') (Join-Path $docs 'assets\app-base.css')
+New-Item -ItemType Directory -Force (Join-Path $docs 'assets\themes') | Out-Null
+Copy-Item (Join-Path $here 'src\themes\*.css') (Join-Path $docs 'assets\themes')
 
 # GitHub Pages: the custom domain, and no Jekyll (it would hide .well-known/).
 Write-Text (Join-Path $docs 'CNAME') "zilloris.com`n"
@@ -36,14 +40,16 @@ Write-Text (Join-Path $docs '.nojekyll') ''
 Write-Text (Join-Path $docs 'robots.txt') "User-agent: *`nAllow: /`n"
 
 # ---- fonts ------------------------------------------------------------------
-$fontSrc = Join-Path $root 'one-page\app\src\main\res\font'
+# Each app's pages use that app's own fonts, copied from its repo.
 $fonts = @{
-  'bricolage_grotesque_800.ttf' = 'bricolage-grotesque-800.ttf'
-  'instrument_sans_400.ttf'     = 'instrument-sans-400.ttf'
-  'geist_mono_400.ttf'          = 'geist-mono-400.ttf'
+  'one-page\app\src\main\res\font\bricolage_grotesque_800.ttf'    = 'bricolage-grotesque-800.ttf'
+  'one-page\app\src\main\res\font\instrument_sans_400.ttf'        = 'instrument-sans-400.ttf'
+  'one-page\app\src\main\res\font\instrument_sans_600.ttf'        = 'instrument-sans-600.ttf'
+  'one-page\app\src\main\res\font\geist_mono_400.ttf'             = 'geist-mono-400.ttf'
+  'note-taking\app\src\main\res\font\dmserifdisplay_regular.ttf'  = 'dm-serif-display-400.ttf'
 }
 foreach ($f in $fonts.Keys) {
-  Copy-Item (Join-Path $fontSrc $f) (Join-Path $docs "assets\fonts\$($fonts[$f])")
+  Copy-Item (Join-Path $root $f) (Join-Path $docs "assets\fonts\$($fonts[$f])")
 }
 # The Open Font License lets these be shared freely, on condition its text
 # travels with them. Add a font above and its copyright line goes in this file.
@@ -90,16 +96,16 @@ $cards = foreach ($a in $data.apps) {
     $ground = if ($a.ground) { "--mark-ground:$(Esc $a.ground);" } else { '' }
     $icon = "<span class=""icon mark"" style=""$ground"" aria-hidden=""true"">$(Esc $a.name.Substring(0,1))</span>"
   }
-  $links = ''
-  if ($a.links -and @($a.links).Count) {
-    $links = '<span class="links">' + ((@($a.links) | ForEach-Object {
-      "<a href=""$(Esc $_.url)"">$(Esc $_.label)</a>" }) -join '') + '</span>'
+  $links = ''; $nameHtml = Esc $a.name
+  if ($a.pages) {
+    $nameHtml = "<a href=""/$($a.id)/"">$(Esc $a.name)</a>"
+    $links = "<span class=""links""><a href=""/$($a.id)/"">About</a><a href=""/$($a.id)/privacy/"">Privacy</a><a href=""/$($a.id)/terms/"">Terms</a></span>"
   }
 @"
         <li class="app" style="--accent:$(Esc $a.accent)">
           $icon
           <div>
-            <h3>$(Esc $a.name)</h3>
+            <h3>$nameHtml</h3>
             <p class="line">$(Esc $a.line)</p>
             <div class="meta">
               <span class="status $(Esc $a.status)">$(Esc $a.statusText)</span>
@@ -119,7 +125,64 @@ $page = $page.Replace('<!--APPS-->', ($cards -join "`n")).
               Replace('<!--TOUCH_ICON-->', $touchTag)
 Write-Text (Join-Path $docs 'index.html') $page
 
+# ---- each app's own pages: About, Privacy, Terms ---------------------------
+# content/<id>/*.html is the source (the policies were imported word for word
+# from Blogger; see tools/import-blogger.ps1). This only dresses it.
+$dash = [char]0x2014
+$tpl  = [System.IO.File]::ReadAllText((Join-Path $here 'src\app-page.html'), $utf8)
+$docsList = @(
+  @{ doc = 'about';   file = 'about.html';   path = '';         label = 'About' },
+  @{ doc = 'privacy'; file = 'privacy.html'; path = 'privacy/'; label = 'Privacy' },
+  @{ doc = 'terms';   file = 'terms.html';   path = 'terms/';   label = 'Terms' }
+)
+function PlainText([string]$s) { ([System.Net.WebUtility]::HtmlDecode(($s -replace '<[^>]+>', '')) -replace '\s+', ' ').Trim().ToLower() }
+
+$pageCount = 0
+foreach ($a in @($data.apps | Where-Object { $_.pages })) {
+  foreach ($d in $docsList) {
+    $src = Join-Path $here "content\$($a.id)\$($d.file)"
+    if (-not (Test-Path $src)) { throw "Missing $src - every app with pages=true needs about, privacy and terms" }
+    $raw   = [System.IO.File]::ReadAllText($src, $utf8)
+    $title = if ($raw -match '<!-- title: (.*?) -->') { $Matches[1].Trim() } else { $a.name }
+    $body  = ([regex]::Replace($raw, '(?s)<!--.*?-->', '')).Trim()
+
+    if ($d.doc -eq 'about') {
+      $h1 = $a.name
+      $pageTitle = "$($a.name) $dash $($a.line.TrimEnd('.'))"
+      $status = "  <p class=""status"">$(Esc $a.statusText)</p>"
+    } else {
+      # "One Page - Privacy Policy" -> heading "Privacy Policy"; the app name is in the header already
+      $h1 = ($title -split '\s+[\u2014\u2013-]\s+', 2)[-1]
+      $pageTitle = "$h1 $dash $($a.name)"
+      $status = ''
+      # Drop leading lines that only repeat the title ("Manuscript", "Privacy Policy",
+      # "Manuscript, by Zilloris"): the page heading and header already say them.
+      $repeat = @($title, "$($a.name) $([char]0x00B7) by Zilloris") + ($title -split '\s+[\u2014\u2013-]\s+') | ForEach-Object { PlainText $_ }
+      while ($body -match '^\s*<(p|h2|h3)>(.*?)</\1>\s*') {
+        if ($repeat -contains (PlainText $Matches[2])) { $body = $body.Substring($Matches[0].Length) } else { break }
+      }
+    }
+
+    $nav = ($docsList | ForEach-Object {
+      $cur = if ($_.doc -eq $d.doc) { ' aria-current="page"' } else { '' }
+      "<a href=""/$($a.id)/$($_.path)""$cur>$($_.label)</a>"
+    }) -join ''
+
+    $html = $tpl.Replace('{{PAGE_TITLE}}', (Esc $pageTitle)).
+                 Replace('{{DESCRIPTION}}', (Esc "$h1 for $($a.name), an Android app by Zilloris.")).
+                 Replace('{{CANONICAL}}', "https://zilloris.com/$($a.id)/$($d.path)").
+                 Replace('{{ID}}', $a.id).Replace('{{DOC}}', $d.doc).
+                 Replace('{{NAME}}', (Esc $a.name)).Replace('{{NAV}}', $nav).
+                 Replace('{{H1}}', (Esc $h1)).Replace('{{STATUS}}', $status).
+                 Replace('{{CONTENT}}', $body)
+    $dir = Join-Path $docs "$($a.id)\$($d.path)"
+    New-Item -ItemType Directory -Force $dir | Out-Null
+    Write-Text (Join-Path $dir 'index.html') $html
+    $pageCount++
+  }
+}
+
 # ---- report -----------------------------------------------------------------
 $kb = [math]::Round(((Get-ChildItem $docs -Recurse -File | Measure-Object Length -Sum).Sum) / 1KB)
-"Built docs/: $n apps, $kb KB in total."
+"Built docs/: $n apps on the home page, $pageCount app pages, $kb KB in total."
 $warnings | ForEach-Object { "  note: $_" }

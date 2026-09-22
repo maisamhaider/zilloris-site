@@ -74,16 +74,36 @@ DNS can take from minutes to a few hours. When GitHub's Pages settings show the
 domain as working, tick **Enforce HTTPS**. Then send yourself a test email at
 `support@zilloris.com` to confirm mail still arrives.
 
-## Privacy policies: not moved yet, on purpose
+## Each app's About, Privacy and Terms
 
-Each app's Privacy and Terms links point where Google Play already points - the
-posts on `zilloris.blogspot.com`. Moving an app's policies here is a per-app step,
-best done alongside that app's next build:
+Apps with `"pages": true` in `apps.json` get three pages, each in that app's own
+look (`src/themes/<id>.css`, fonts from the app's repo):
 
-1. Publish the policy at its new address, e.g. `zilloris.com/manuscript/privacy`.
-2. Switch the URL in Play Console and in the app, in the same release.
-3. **Leave the Blogger post up.** Blogger cannot redirect to another domain, and
-   Play needs the old link to keep working until every installed copy has updated.
+| Page | Address | Source |
+|---|---|---|
+| About | `zilloris.com/<id>/` | `content/<id>/about.html` |
+| Privacy | `zilloris.com/<id>/privacy/` | `content/<id>/privacy.html` |
+| Terms | `zilloris.com/<id>/terms/` | `content/<id>/terms.html` |
+
+**To update a policy:** edit `content/<id>/privacy.html` (plain HTML: `<h2>`, `<p>`,
+`<ul>`, `<a>`), change its "Updated" date, rebuild, commit, push. It is live in
+about a minute. The address never changes, so nothing in the app or Play Console
+needs touching - no Remote Config, no new build.
+
+- The first line, `<!-- title: App - Privacy Policy -->`, sets the page heading.
+  Leading lines that only repeat the title are dropped from the page, since the
+  heading already says them.
+- The policies were imported word for word from the Blogger posts on 22 Sep 2026
+  (`tools/import-blogger.ps1`, which checks the text matches). From then on these
+  files are the source. The Blogger posts are left up and are not updated.
+- A policy's text is never retyped by hand from memory; change only what changed.
+- About pages follow the claim rules: only what the shipped build does.
+
+**Switching an app to these addresses** (once per app): put the new Privacy URL in
+Play Console (App content → Privacy policy; takes effect at once), and the new
+links in the app's next build. Apps that bundle their own copy of the policy
+(Manuscript's `assets/legal`, Note Bolt's `privacy_policy_body`) only update that
+copy with a build. Keep the Blogger posts up until every installed copy links here.
 
 ## Later, when needed
 

@@ -1,0 +1,55 @@
+/* One Page - Marginalia: a paperback annotated in highlighter, with hard
+   3px ink sticker shadows. Tokens from one-page's Theme.kt via the Design
+   Registry. */
+
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 800; font-display: swap;
+             src: url("/assets/fonts/bricolage-grotesque-800.ttf") format("truetype"); }
+@font-face { font-family: "Instrument Sans"; font-weight: 400; font-display: swap;
+             src: url("/assets/fonts/instrument-sans-400.ttf") format("truetype"); }
+@font-face { font-family: "Instrument Sans"; font-weight: 600; font-display: swap;
+             src: url("/assets/fonts/instrument-sans-600.ttf") format("truetype"); }
+@font-face { font-family: "Geist Mono"; font-weight: 400; font-display: swap;
+             src: url("/assets/fonts/geist-mono-400.ttf") format("truetype"); }
+
+:root {
+  --ground: #F8F5EE; --card: #FFFDF7; --ink: #211C15; --muted: #6B6254;
+  --line: #D9D1BF; --hl: #F7E339; --pink: #FF64B8; --blue: #2743E8;
+  --display-font: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif;
+  --body-font: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono-font: "Geist Mono", ui-monospace, Consolas, monospace;
+  --link: #2743E8; --accent-strong: #2743E8; --code-bg: #F1EBDC;
+}
+
+.apphead { border-bottom: 2px solid var(--ink); }
+.brand-icon { border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+.brand-name { font-weight: 800; letter-spacing: -.02em; }
+
+.tabs a {
+  font-weight: 600; background: var(--card); border: 2px solid var(--ink);
+  border-radius: 999px; box-shadow: 2px 2px 0 var(--ink);
+}
+.tabs a:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--ink); }
+.tabs a[aria-current="page"] { background: var(--hl); }
+
+/* the highlighter stroke, sat under the title the way a reader would draw it */
+.page h1 { font-weight: 800; letter-spacing: -.025em; }
+.page h1 .mark {
+  background: linear-gradient(transparent 55%, var(--hl) 55%, var(--hl) 92%, transparent 92%);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 .1em;
+}
+.status {
+  display: inline-block; font-family: var(--mono-font); font-size: 12.5px; color: var(--ink);
+  background: var(--card); border: 2px solid var(--ink); border-radius: 6px;
+  padding: 3px 9px; box-shadow: 2px 2px 0 var(--ink); transform: rotate(-1.5deg);
+}
+
+.body {
+  background: var(--card); border: 2px solid var(--ink); border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--ink); padding: 26px clamp(18px, 4vw, 34px) 18px;
+}
+.body h2 { font-weight: 800; letter-spacing: -.015em; }
+.lede { font-weight: 600; }
+
+.appfoot { border-top: 2px solid var(--ink); }
+
+@media (prefers-reduced-motion: reduce) { .tabs a:hover { transform: none; } }

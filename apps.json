@@ -1,47 +1,50 @@
 {
-  "note": "The apps on zilloris.com. Only apps with a build uploaded to Google Play are shown (owner's rule, 22 Sep 2026): set onPlay to true the day an app's first build goes up, and it appears on the next build. The rest stay listed here so nothing has to be rewritten. Every line is public, so it follows the claim rules - say what the app is for, never promise a feature the shipped build does not have. Icon paths are relative to C:\\my\\Claude. 'status' is one of testing, soon, dev, design.",
+  "note": "The apps on zilloris.com. Only apps with a build uploaded to Google Play are shown (owner's rule, 22 Sep 2026): set onPlay to true the day an app's first build goes up. Apps with pages=true also get /<id>/ (About), /<id>/privacy/ and /<id>/terms/, built from content/<id>/ in that app's own look (src/themes/<id>.css). 'blogger' records the old policy URLs, which Play and the apps still point at until they are switched; the Blogger posts are left untouched. Every line is public, so it follows the claim rules. Icon paths are relative to C:\\my\\Claude. 'status' is one of testing, soon, dev, design.",
   "apps": [
     {
       "id": "one-page",
       "name": "One Page",
       "onPlay": true,
+      "pages": true,
       "line": "Read one page a day.",
       "status": "testing",
       "statusText": "In testing on Google Play",
       "accent": "#F7E339",
       "icon": "one-page/store/icon-512.png",
-      "links": [
-        { "label": "Privacy", "url": "https://zilloris.blogspot.com/2026/09/one-page-privacy-policy.html" },
-        { "label": "Terms", "url": "https://zilloris.blogspot.com/2026/09/one-page-terms-of-use.html" }
-      ]
+      "blogger": {
+        "privacy": "https://zilloris.blogspot.com/2026/09/one-page-privacy-policy.html",
+        "terms": "https://zilloris.blogspot.com/2026/09/one-page-terms-of-use.html"
+      }
     },
     {
       "id": "manuscript",
       "name": "Manuscript",
       "onPlay": true,
+      "pages": true,
       "line": "Write one page a day until the draft is done.",
       "status": "testing",
       "statusText": "In testing on Google Play",
       "accent": "#C8332B",
       "icon": "manuscript/store/graphics/ic_play_512.png",
-      "links": [
-        { "label": "Privacy", "url": "https://zilloris.blogspot.com/2026/09/manuscript-privacy-policy.html" },
-        { "label": "Terms", "url": "https://zilloris.blogspot.com/2026/09/manuscript-terms-of-use.html" }
-      ]
+      "blogger": {
+        "privacy": "https://zilloris.blogspot.com/2026/09/manuscript-privacy-policy.html",
+        "terms": "https://zilloris.blogspot.com/2026/09/manuscript-terms-of-use.html"
+      }
     },
     {
       "id": "note-bolt",
       "name": "Note Bolt",
       "onPlay": true,
+      "pages": true,
       "line": "A notepad and to-do lists.",
       "status": "testing",
       "statusText": "In testing on Google Play",
       "accent": "#56C2DC",
       "icon": "note-taking/Store Asset NoteBolt/play-ready/icon_512_playstore.png",
-      "links": [
-        { "label": "Privacy", "url": "https://zilloris.blogspot.com/2026/09/note-taking-privacy-policy.html" },
-        { "label": "Terms", "url": "https://zilloris.blogspot.com/2026/09/note-taking-terms-and-conditions.html" }
-      ]
+      "blogger": {
+        "privacy": "https://zilloris.blogspot.com/2026/09/note-taking-privacy-policy.html",
+        "terms": "https://zilloris.blogspot.com/2026/09/note-taking-terms-and-conditions.html"
+      }
     },
     {
       "id": "nightbook",
@@ -52,8 +55,7 @@
       "statusText": "In development",
       "accent": "#7B6AD9",
       "ground": "#332937",
-      "icon": "",
-      "links": []
+      "icon": ""
     },
     {
       "id": "sabr",
@@ -63,8 +65,7 @@
       "status": "dev",
       "statusText": "In development",
       "accent": "#D89A2B",
-      "icon": "sabr/design/icon/export/store/play-store-512.png",
-      "links": []
+      "icon": "sabr/design/icon/export/store/play-store-512.png"
     },
     {
       "id": "atomiser",
@@ -74,8 +75,7 @@
       "status": "design",
       "statusText": "In design",
       "accent": "#E39A2D",
-      "icon": "atomiser/design/icon/png/playstore-512.png",
-      "links": []
+      "icon": "atomiser/design/icon/png/playstore-512.png"
     }
   ]
 }

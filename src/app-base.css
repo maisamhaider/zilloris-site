@@ -1,0 +1,60 @@
+/* The structure every app's About, Privacy and Terms pages share. Each app's
+   look lives in assets/themes/<app>.css, which sets the tokens below and adds
+   the one or two touches that make the page read as that app. Reading comes
+   first: these are long legal documents, so the measure, size and spacing
+   are the same everywhere and only the dressing changes. */
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: var(--body-font); font-size: 17px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+}
+:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; border-radius: 3px; }
+
+.inner { max-width: 760px; margin: 0 auto; padding-inline: 20px; }
+
+/* ---- header: the app's own mark, then About / Privacy / Terms ---- */
+.apphead { background: var(--head-bg, var(--ground)); }
+.apphead .inner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 14px 20px; padding-block: 16px;
+}
+.brand { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; }
+.brand-icon { width: 48px; height: 48px; border-radius: 22%; display: block; }
+.brand-name { font-family: var(--display-font); font-size: 24px; line-height: 1; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tabs a { color: inherit; text-decoration: none; font-size: 14px; padding: 6px 12px; line-height: 1.3; }
+
+/* ---- the document ---- */
+.page { max-width: 760px; margin: 0 auto; padding: 34px 20px 64px; }
+.page h1 {
+  font-family: var(--display-font); font-size: clamp(30px, 6vw, 44px); line-height: 1.12;
+  margin: 0 0 10px; text-wrap: balance;
+}
+.status { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+
+.body { margin-top: 22px; }
+.body h2 { font-family: var(--display-font); font-size: 23px; line-height: 1.25; margin: 1.9em 0 .45em; }
+.body h3 { font-size: 18px; line-height: 1.3; margin: 1.5em 0 .35em; }
+.body > :first-child { margin-top: 0; }
+.body p, .body li { max-width: 68ch; }
+.body p { margin: 0 0 .9em; }
+.body ul, .body ol { padding-left: 1.3em; margin: 0 0 1em; }
+.body li { margin: .3em 0; }
+.body a { color: var(--link); text-underline-offset: 3px; }
+.body code { font-family: var(--mono-font); font-size: .88em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+.body table { display: block; overflow-x: auto; border-collapse: collapse; font-size: 15px; margin: 0 0 1.2em; }
+.body th, .body td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+.body th { background: var(--code-bg); }
+.lede { font-size: 21px; line-height: 1.45; }
+
+/* ---- footer ---- */
+.appfoot { border-top: 1px solid var(--line); }
+.appfoot .inner {
+  display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between;
+  padding-block: 20px 36px; font-size: 14px; color: var(--muted);
+}
+.appfoot a { color: inherit; }

@@ -1,0 +1,51 @@
+/* Manuscript - one sheet of paper and a red pen, quiet 1px hairlines, a 2px
+   red meter, and the red hairline "dried" stamp rotated -4 degrees. Tokens
+   from manuscript's Manuscript.kt via the Design Registry. */
+
+@font-face { font-family: "Instrument Sans"; font-weight: 400; font-display: swap;
+             src: url("/assets/fonts/instrument-sans-400.ttf") format("truetype"); }
+@font-face { font-family: "Instrument Sans"; font-weight: 600; font-display: swap;
+             src: url("/assets/fonts/instrument-sans-600.ttf") format("truetype"); }
+@font-face { font-family: "Geist Mono"; font-weight: 400; font-display: swap;
+             src: url("/assets/fonts/geist-mono-400.ttf") format("truetype"); }
+
+:root {
+  --ground: #FBF9F3; --card: #F4F1E8; --ink: #1C1916; --muted: #8F887B;
+  --line: #E4DED0; --red: #C8332B; --kraft: #E8D9B8;
+  --display-font: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body-font: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono-font: "Geist Mono", ui-monospace, Consolas, monospace;
+  --link: #C8332B; --accent-strong: #C8332B; --code-bg: #F4F1E8;
+}
+
+/* the 2px red meter along the top rule, as on the writing page */
+.apphead { border-bottom: 1px solid var(--line); position: relative; }
+.apphead::after {
+  content: ""; position: absolute; left: 0; bottom: -1px; height: 2px;
+  width: 34%; background: var(--red);
+}
+.brand-name { font-weight: 600; font-size: 22px; letter-spacing: -.01em; }
+
+.tabs { gap: 18px; }
+.tabs a {
+  padding: 4px 0; font-family: var(--mono-font); font-size: 13px; color: var(--muted);
+  text-transform: lowercase; border-bottom: 1px solid transparent;
+}
+.tabs a:hover { color: var(--ink); }
+.tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--red); }
+
+.page h1 { font-weight: 600; letter-spacing: -.025em; }
+
+/* the dried stamp: a red hairline box, turned a little, never filled */
+.status {
+  display: inline-block; font-family: var(--mono-font); font-size: 12px; color: var(--red);
+  border: 1px solid var(--red); border-radius: 3px; padding: 3px 9px;
+  transform: rotate(-4deg); margin-top: 10px;
+}
+
+.body h2 {
+  font-weight: 600; font-size: 19px; letter-spacing: -.005em;
+  border-top: 1px solid var(--line); padding-top: 18px; margin-top: 2.2em;
+}
+.body > h2:first-child { border-top: 0; padding-top: 0; }
+.lede { color: var(--ink); }
