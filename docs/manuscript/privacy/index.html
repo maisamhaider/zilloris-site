@@ -28,7 +28,7 @@
   <h1><span class="mark">Privacy Policy</span></h1>
 
   <div class="body">
-<p class="effective">Effective 16-Sep-2026</p>
+<p class="effective">Effective 23-Sep-2026</p>
 <p class="intro">Manuscript is made by Zilloris. This policy explains what the app does with information, in the same plain register the app uses.</p>
 <p class="short">The short version. Your writing stays on your phone. Manuscript has no account, no login, no server of its own, and no way to send your draft anywhere. What does leave your phone is a small amount of information about how the app is used and when it crashes. It cannot contain any part of your draft, for a reason set out below.</p>
 <h2>What the app keeps on your phone</h2>
@@ -69,8 +69,8 @@
 <p>Nothing that comes back can change your page size, the hour, the dry hour, or anything that happens to your words.</p>
 <h3>4. Google Play In-App Update — whether a newer version exists</h3>
 <p>The app asks the Play Store app already installed on your phone whether there is an update. This is a message between two apps on your device; the app sends nothing to us and nothing of yours to Google. Whatever the Play Store itself reports to Google about your device and account is governed by Google’s own policy, not by this one.</p>
-<h3>5. Blogger — the text of this policy, and of the terms</h3>
-<p>This policy and the terms of use are published on Blogger, a Google service, at <code>zilloris.blogspot.com</code>. When you open either one inside the app, the app downloads that page, so that what you read is what is in force today. It is an ordinary web request, sent only when you open one of those two pages and never in the background. It carries the page’s address, a note that it came from Manuscript and which version, and — like any web request — your network address. Nothing from your draft or your settings goes with it. The app keeps the last copy it downloaded, and shows that, or the copy it was installed with, when there is no connection.</p>
+<h3>5. The web pages — the text of this policy, and of the terms</h3>
+<p>This policy and the terms of use are published at <code>zilloris.com</code>, on GitHub Pages, a GitHub service. When you open either one inside the app, the app downloads that page, so that what you read is what is in force today. It is an ordinary web request, sent only when you open one of those two pages and never in the background. It carries the page’s address, a note that it came from Manuscript and which version, and — like any web request — your network address. Nothing from your draft or your settings goes with it. The app keeps the last copy it downloaded, and shows that, or the copy it was installed with, when there is no connection.</p>
 <h2>Why your draft cannot be collected, even by mistake</h2>
 <p>This is the strongest thing the app has to say, so here is exactly how it works.</p>
 <p>The only code in Manuscript that can send anything is a single small piece of code we call the analytics facade. It offers callers one method, and that method accepts three things:</p>
@@ -80,7 +80,7 @@
 </ul>
 <p>There is no way to pass it a piece of text. No second version of the method accepts one. A programmer who wanted to send a sentence of your draft could not do it by getting something wrong — they would have to deliberately add a new method, and that change would be visible in the app’s source.</p>
 <p>Your page text also never enters the database, so there is no table anywhere that a future feature could accidentally read from and report. Kept lines and strikes are stored as positions in a file. The pages themselves live only as files, behind a single piece of code that reads and writes them and does nothing else.</p>
-<p>The app’s own code opens one kind of connection, and it cannot carry your writing either. When you open the privacy policy or the terms of use inside the app, it downloads the current text of that page — see 5. Blogger above. That code is handed the page’s address and nothing else, so there is nothing of yours for it to send. There is no web view: the text is set in the app’s own type. Everything else that reaches the network is Google’s Firebase code, and Google’s code is never handed your prose.</p>
+<p>The app’s own code opens one kind of connection, and it cannot carry your writing either. When you open the privacy policy or the terms of use inside the app, it downloads the current text of that page — see 5. The web pages above. That code is handed the page’s address and nothing else, so there is nothing of yours for it to send. There is no web view: the text is set in the app’s own type. Everything else that reaches the network is Google’s Firebase code, and Google’s code is never handed your prose.</p>
 <h2>The advertising identifier</h2>
 <p>Manuscript does not collect it, and cannot.</p>
 <p>This is worth explaining, because it very nearly did. The Firebase Analytics library brings three advertising permissions in behind it — the Android advertising ID and two Privacy Sandbox attribution permissions — and they arrive whether or not an app has any advertising in it. Most apps that use Firebase ship them without noticing.</p>
