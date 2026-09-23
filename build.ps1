@@ -136,25 +136,7 @@ $docsList = @(
   @{ doc = 'terms';   file = 'terms.html';   path = 'terms/';   label = 'Terms' }
 )
 function PlainText([string]$s) { ([System.Net.WebUtility]::HtmlDecode(($s -replace '<[^>]+>', '')) -replace '\s+', ' ').Trim().ToLower() }
-function JsonStr([string]$s) {
-  $b = New-Object System.Text.StringBuilder
-  foreach ($c in $s.ToCharArray()) {
-    switch ($c) {
-      '"'  { [void]$b.Append('\"') }
-      '\'  { [void]$b.Append('\\') }
-      "`n" { [void]$b.Append('\n') }
-      "`r" { [void]$b.Append('\r') }
-      "`t" { [void]$b.Append('\t') }
-      default {
-        if ([int]$c -lt 0x20) { [void]$b.AppendFormat('\u{0:x4}', [int]$c) } else { [void]$b.Append($c) }
-      }
-    }
-  }
-  '"' + $b.ToString() + '"'
-}
-
 $pageCount = 0
-$feed = @()
 foreach ($a in @($data.apps | Where-Object { $_.pages })) {
   foreach ($d in $docsList) {
     $src = Join-Path $here "content\$($a.id)\$($d.file)"
@@ -197,38 +179,9 @@ foreach ($a in @($data.apps | Where-Object { $_.pages })) {
     Write-Text (Join-Path $dir 'index.html') $html
     $pageCount++
 
-    if ($d.doc -ne 'about') {
-      $url = "https://zilloris.com/$($a.id)/$($d.path)"
-      $when = (Get-Item $src).LastWriteTime.ToString('yyyy-MM-ddTHH:mm:ss.fffzzz')
-      $feed += @"
-    { "link": [ { "rel": "alternate", "type": "text/html", "href": $(JsonStr $url) } ],
-      "title": { "type": "text", "`$t": $(JsonStr $title) },
-      "updated": { "`$t": $(JsonStr $when) },
-      "content": { "type": "html", "`$t": $(JsonStr $body) } }
-"@
-    }
   }
 }
 
-# ---- the feed One Page reads ------------------------------------------------
-# One Page does not link to its policy, it reads it: domain/LegalFeed.kt asks
-# the host of the configured URL for /feeds/posts/default?alt=json, finds the
-# entry whose alternate link is that URL, and lays out the HTML in the app's
-# own cards. That was Blogger's feed; this is the same shape, served from the
-# same content as the pages above, so the app can be pointed here with no new
-# release. A static host ignores the query string, so the file has no suffix.
-# If One Page ever reads the page itself, this file and this block can go.
-New-Item -ItemType Directory -Force (Join-Path $docs 'feeds\posts') | Out-Null
-Write-Text (Join-Path $docs 'feeds\posts\default') @"
-{ "version": "1.0",
-  "feed": {
-    "title": { "type": "text", "`$t": "Zilloris app documents" },
-    "entry": [
-$($feed -join ",`n")
-    ]
-  }
-}
-"@
 
 # ---- report -----------------------------------------------------------------
 $kb = [math]::Round(((Get-ChildItem $docs -Recurse -File | Measure-Object Length -Sum).Sum) / 1KB)

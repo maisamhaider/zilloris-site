@@ -106,10 +106,11 @@ needs touching - no Remote Config, no new build.
   `short`, `warning`, `legalese` - which Blogger had stripped and
   `tools/restore-manuscript-classes.pl` put back. Keep them when editing, or the
   app falls back to the copy bundled in the build.
-- **One Page** reads Blogger's JSON feed shape (`domain/LegalFeed.kt`), so the build
-  also writes `docs/feeds/posts/default` from the same content. Its sections are the
-  `<h2>`s, and the "Updated: 5 September 2026" line must stay in the first paragraph -
-  that is where the app reads the date from.
+- **One Page** does the same since 23 Sep 2026 (`domain/Legal.kt`, lifted from Manuscript).
+  It reads the document inside `<main>`, and takes its date from the "Updated: 5 September
+  2026" line in the opening paragraph, so that line has to stay there.
+- `src/app-page.html` carries the contract in a comment: chrome outside `<main>`, one `<h1>`,
+  three or more `<h2>`s. Anything else and the apps refuse the page.
 - Both fall back silently to older text baked into the app if a page stops parsing,
   so check after any structural change, not only that the page looks right.
 
