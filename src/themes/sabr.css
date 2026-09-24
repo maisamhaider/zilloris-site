@@ -1,0 +1,42 @@
+/* Sabr - sumi ink on laid paper: a habit is one brush line, a segment a day.
+   Tokens from sabr's ui/theme/Theme.kt via the Design Registry. Cormorant
+   Garamond italic sets the headings, as it does every title in the app; Karla
+   sets the words. */
+
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300 700;
+             font-display: swap;
+             src: url("/assets/fonts/cormorant-garamond-italic.ttf") format("truetype-variations"); }
+@font-face { font-family: "Karla"; font-weight: 200 800; font-display: swap;
+             src: url("/assets/fonts/karla.ttf") format("truetype-variations"); }
+
+:root {
+  --ground: #EEEAE1; --card: #E7E2D7; --ink: #101418; --muted: #6B6B66;
+  --line: #D8D2C5; --saffron: #D89A2B; --madder: #8C2F2B; --lapis: #2A4B8D;
+  --display-font: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body-font: "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono-font: ui-monospace, Consolas, monospace;
+  --link: #2A4B8D; --accent-strong: #8C2F2B; --code-bg: #E7E2D7;
+}
+
+/* laid paper: the faint ruling the app draws behind every screen */
+body {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0 13px, rgba(16, 20, 24, .045) 13px 14px
+  );
+}
+
+h1, h2, h3, .brand-name { font-family: var(--display-font); font-style: italic; font-weight: 500; }
+h1 { font-size: clamp(38px, 7vw, 56px); line-height: 1.02; letter-spacing: -.01em; }
+h2 { font-size: clamp(24px, 3.4vw, 30px); margin-top: 2.2em; }
+.brand-name { font-size: 26px; }
+
+/* the seal: one saffron dot, the app's mark for a pen lift, under the app name */
+.apphead { border-bottom: 1px solid var(--line); }
+.tabs a { font-family: var(--body-font); letter-spacing: .04em; text-transform: uppercase; font-size: 12px; }
+.tabs a[aria-current="page"] { border-bottom: 1px solid var(--ink); }
+
+/* the document's own date line, set quietly */
+p.effective, .updated { color: var(--muted); font-size: 14px; }
+
+a { color: var(--link); text-underline-offset: 3px; }
+hr { border: 0; border-top: 1px solid var(--line); }

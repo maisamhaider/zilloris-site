@@ -1,0 +1,81 @@
+<!doctype html>
+<!--
+  One app page: About, Privacy or Terms. build.ps1 fills the {{...}} slots.
+
+  THE APPS PARSE THIS PAGE. One Page and Manuscript download the published
+  policy and set it in their own type, so this structure is a contract, not
+  just a layout:
+
+    <main>            the document region - the apps read inside it
+    <h1>              the document's title
+    <h2>              a section; three or more, or the app refuses the page
+    header, nav, footer   skipped by the parsers - keep chrome outside <main>
+
+  Manuscript's documents also carry classes the parser reads: num, effective,
+  intro, short, warning, legalese. Change any of this and both apps fall back
+  to the older text built into them, with nothing to tell us it happened.
+  Check with the app's parser after a structural change (manuscript's
+  LegalHtmlTest, one-page's LegalHtmlTest), not by eye.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use — Sabr</title>
+<meta name="description" content="Terms of Use for Sabr, an Android app by Zilloris.">
+<link rel="canonical" href="https://zilloris.com/sabr/terms/">
+<meta property="og:title" content="Terms of Use — Sabr">
+<meta property="og:url" content="https://zilloris.com/sabr/terms/">
+<link rel="icon" href="/assets/icons/sabr.png" type="image/png">
+<link rel="stylesheet" href="/assets/app-base.css">
+<link rel="stylesheet" href="/assets/themes/sabr.css">
+</head>
+<body class="app-sabr doc-terms">
+
+<header class="apphead">
+  <div class="inner">
+    <a class="brand" href="/sabr/">
+      <img class="brand-icon" src="/assets/icons/sabr.png" alt="" width="48" height="48">
+      <span class="brand-name">Sabr</span>
+    </a>
+    <nav class="tabs" aria-label="Sabr"><a href="/sabr/">About</a><a href="/sabr/privacy/">Privacy</a><a href="/sabr/terms/" aria-current="page">Terms</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <h1><span class="mark">Terms of Use</span></h1>
+
+  <div class="body">
+<p><strong>App:</strong> Sabr (<code>com.zilloris.sabr</code>)<br>
+<strong>Updated:</strong> 24 September 2026<br>
+<strong>Contact:</strong> <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+<h2>Using the app</h2>
+<p>Sabr is a habit tracker for Android: one habit you are quitting, one you are building, each drawn as a brush line with a segment for every day. It is free, it has no account, and there is nothing to buy inside it. Installing it is the whole of it — there is nothing to register and nothing to cancel.</p>
+<p>Sabr is not directed at children under 13.</p>
+<h2>Your record is yours</h2>
+<p>What you put into Sabr belongs to you. The names you give your lines, the amounts you record, the days you lifted the pen and the days you held — all of it is yours. We claim no ownership of it, and we never receive it: there is no account, no sync and no server of ours for it to be sent to.</p>
+<p>Because we never receive it, we cannot read it, cannot recover it, and have nothing to hand to anyone else.</p>
+<h2>Your copies are yours to keep</h2>
+<p>Sabr keeps your record in one place: your phone. Settings offers an export of your page as a CSV file, through Android's own share sheet, to a place you choose. If you send it into a cloud folder or another app, the file is then subject to that service's terms and outside anything this app can control.</p>
+<p>Deleting the app deletes the page, immediately and permanently, and a copy you exported earlier is not affected — it stays where you put it.</p>
+<h2>No warranty</h2>
+<p>The app is provided as it is. It is a habit tracker on a phone: it can be uninstalled, a device can be lost, and data kept in one place can be gone. Export anything you would be sorry to lose. To the extent the law allows, the app and its author are not liable for lost data or lost time.</p>
+<p>Nothing here removes rights you have as a consumer that cannot be excluded under the law where you live.</p>
+<h2>Services we do not run</h2>
+<p>Google Play distributes the app and delivers its updates, and Google Play's terms apply to that. Google Firebase Remote Config supplies the app with the addresses of this document and the privacy policy, and GitHub Pages publishes both at <code>zilloris.com</code>; when you open either one inside the app it is downloaded from there, and GitHub's terms apply to that request. What each carries is described in the <a href="/sabr/privacy/">privacy policy</a>.</p>
+<h2>Changes</h2>
+<p>These terms may change with a future version, and the updated date above changes with them. The app downloads this page when you open the terms inside it, so it shows the current text.</p>
+<h2>Contact</h2>
+<p>Questions about these terms: <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+  </div>
+</main>
+
+<footer class="appfoot">
+  <div class="inner">
+    <span>Sabr is made by <a href="/">Zilloris</a></span>
+    <a href="mailto:support@zilloris.com">support@zilloris.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

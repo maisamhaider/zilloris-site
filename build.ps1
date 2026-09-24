@@ -47,6 +47,8 @@ $fonts = @{
   'one-page\app\src\main\res\font\instrument_sans_600.ttf'        = 'instrument-sans-600.ttf'
   'one-page\app\src\main\res\font\geist_mono_400.ttf'             = 'geist-mono-400.ttf'
   'note-taking\app\src\main\res\font\dmserifdisplay_regular.ttf'  = 'dm-serif-display-400.ttf'
+  'sabr\app\src\main\res\font\cormorant_garamond_italic.ttf'      = 'cormorant-garamond-italic.ttf'
+  'sabr\app\src\main\res\font\karla.ttf'                          = 'karla.ttf'
 }
 foreach ($f in $fonts.Keys) {
   Copy-Item (Join-Path $root $f) (Join-Path $docs "assets\fonts\$($fonts[$f])")
@@ -61,12 +63,16 @@ $ffmpeg = Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages" -Recurse -
 $data = Get-Content (Join-Path $here 'apps.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $warnings = @()
 
-# Only apps with a build on Google Play appear on the site (owner's rule, 22 Sep 2026).
+# Only apps with a build on Google Play appear on the home page (owner's rule,
+# 22 Sep 2026). Their documents are a separate question: Play asks for a live
+# privacy policy address while an app is still private, so any app with
+# pages=true gets its three pages built and reachable by link, listed or not.
+$paged = @($data.apps | Where-Object { $_.pages })
 $hidden = @($data.apps | Where-Object { -not $_.onPlay } | ForEach-Object { $_.name })
 $data.apps = @($data.apps | Where-Object { $_.onPlay })
-if ($hidden.Count) { $warnings += "Not on Play yet, so hidden: $($hidden -join ', ')" }
+if ($hidden.Count) { $warnings += "Not on Play yet, so off the home page: $($hidden -join ', ')" }
 
-foreach ($a in $data.apps) {
+foreach ($a in @($data.apps) + @($paged | Where-Object { -not $_.onPlay })) {
   if (-not $a.icon) { $warnings += "$($a.name): no icon file yet - shown as a letter"; continue }
   $src = Join-Path $root $a.icon
   if (-not (Test-Path $src)) { throw "Icon for $($a.name) not found: $src" }
@@ -137,7 +143,7 @@ $docsList = @(
 )
 function PlainText([string]$s) { ([System.Net.WebUtility]::HtmlDecode(($s -replace '<[^>]+>', '')) -replace '\s+', ' ').Trim().ToLower() }
 $pageCount = 0
-foreach ($a in @($data.apps | Where-Object { $_.pages })) {
+foreach ($a in $paged) {
   foreach ($d in $docsList) {
     $src = Join-Path $here "content\$($a.id)\$($d.file)"
     if (-not (Test-Path $src)) { throw "Missing $src - every app with pages=true needs about, privacy and terms" }

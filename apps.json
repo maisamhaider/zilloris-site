@@ -61,6 +61,7 @@
       "id": "sabr",
       "name": "Sabr",
       "onPlay": false,
+      "pages": true,
       "line": "Quit one habit, build another.",
       "status": "dev",
       "statusText": "In development",
