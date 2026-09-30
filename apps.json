@@ -60,11 +60,11 @@
     {
       "id": "sabr",
       "name": "Sabr",
-      "onPlay": false,
+      "onPlay": true,
       "pages": true,
       "line": "Quit one habit, build another.",
-      "status": "dev",
-      "statusText": "In development",
+      "status": "testing",
+      "statusText": "In testing on Google Play",
       "accent": "#D89A2B",
       "icon": "sabr/design/icon/export/store/play-store-512.png"
     },
