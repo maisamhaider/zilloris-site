@@ -102,10 +102,12 @@ $cards = foreach ($a in $data.apps) {
     $ground = if ($a.ground) { "--mark-ground:$(Esc $a.ground);" } else { '' }
     $icon = "<span class=""icon mark"" style=""$ground"" aria-hidden=""true"">$(Esc $a.name.Substring(0,1))</span>"
   }
+  # An app anyone can install leads with the way to install it.
+  $play = if ($a.package) { "<a class=""play"" href=""https://play.google.com/store/apps/details?id=$($a.package)"">Google Play</a>" } else { '' }
   $links = ''; $nameHtml = Esc $a.name
   if ($a.pages) {
     $nameHtml = "<a href=""/$($a.id)/"">$(Esc $a.name)</a>"
-    $links = "<span class=""links""><a href=""/$($a.id)/"">About</a><a href=""/$($a.id)/privacy/"">Privacy</a><a href=""/$($a.id)/terms/"">Terms</a></span>"
+    $links = "<span class=""links"">$play<a href=""/$($a.id)/"">About</a><a href=""/$($a.id)/privacy/"">Privacy</a><a href=""/$($a.id)/terms/"">Terms</a></span>"
   }
 @"
         <li class="app" style="--accent:$(Esc $a.accent)">
@@ -154,7 +156,11 @@ foreach ($a in $paged) {
     if ($d.doc -eq 'about') {
       $h1 = $a.name
       $pageTitle = "$($a.name) $dash $($a.line.TrimEnd('.'))"
-      $status = "  <p class=""status"">$(Esc $a.statusText)</p>"
+      $status = if ($a.package) {
+        "  <p class=""status"">$(Esc $a.statusText) $([char]0x2014) <a href=""https://play.google.com/store/apps/details?id=$($a.package)"">get $(Esc $a.name)</a></p>"
+      } else {
+        "  <p class=""status"">$(Esc $a.statusText)</p>"
+      }
     } else {
       # "One Page - Privacy Policy" -> heading "Privacy Policy"; the app name is in the header already
       $h1 = ($title -split '\s+[\u2014\u2013-]\s+', 2)[-1]

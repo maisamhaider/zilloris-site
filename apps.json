@@ -7,8 +7,9 @@
       "onPlay": true,
       "pages": true,
       "line": "Read one page a day.",
-      "status": "testing",
-      "statusText": "In testing on Google Play",
+      "status": "live",
+      "statusText": "On Google Play",
+      "package": "com.zilloris.onepage",
       "accent": "#F7E339",
       "icon": "one-page/store/icon-512.png",
       "blogger": {
