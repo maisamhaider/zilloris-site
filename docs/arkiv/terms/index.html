@@ -1,0 +1,80 @@
+<!doctype html>
+<!--
+  One app page: About, Privacy or Terms. build.ps1 fills the {{...}} slots.
+
+  THE APPS PARSE THIS PAGE. One Page and Manuscript download the published
+  policy and set it in their own type, so this structure is a contract, not
+  just a layout:
+
+    <main>            the document region - the apps read inside it
+    <h1>              the document's title
+    <h2>              a section; three or more, or the app refuses the page
+    header, nav, footer   skipped by the parsers - keep chrome outside <main>
+
+  Manuscript's documents also carry classes the parser reads: num, effective,
+  intro, short, warning, legalese. Change any of this and both apps fall back
+  to the older text built into them, with nothing to tell us it happened.
+  Check with the app's parser after a structural change (manuscript's
+  LegalHtmlTest, one-page's LegalHtmlTest), not by eye.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use — Arkiv</title>
+<meta name="description" content="Terms of Use for Arkiv, an Android app by Zilloris.">
+<link rel="canonical" href="https://zilloris.com/arkiv/terms/">
+<meta property="og:title" content="Terms of Use — Arkiv">
+<meta property="og:url" content="https://zilloris.com/arkiv/terms/">
+<link rel="icon" href="/assets/icons/arkiv.png" type="image/png">
+<link rel="stylesheet" href="/assets/app-base.css">
+<link rel="stylesheet" href="/assets/themes/arkiv.css">
+</head>
+<body class="app-arkiv doc-terms">
+
+<header class="apphead">
+  <div class="inner">
+    <a class="brand" href="/arkiv/">
+      
+      <span class="brand-name">Arkiv</span>
+    </a>
+    <nav class="tabs" aria-label="Arkiv"><a href="/arkiv/">About</a><a href="/arkiv/privacy/">Privacy</a><a href="/arkiv/terms/" aria-current="page">Terms</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <h1><span class="mark">Terms of Use</span></h1>
+
+  <div class="body">
+<p><strong>App:</strong> Arkiv (<code>com.zilloris.arkiv</code>)<br>
+<strong>Updated:</strong> 13 October 2026<br>
+<strong>Contact:</strong> <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+<h2>Using the app</h2>
+<p>Arkiv keeps your household's papers on your phone — passports, ID cards, licences, car papers, insurance — reminds you before they run out, and makes PDFs of them to share or print. It is free to download, has no ads and has nothing to buy. There is no account: installing it is the whole of it.</p>
+<p>Arkiv is not directed at children under 13.</p>
+<h2>Your papers are yours</h2>
+<p>What you put into Arkiv belongs to you, and you are responsible for what you add and who you share it with. We claim no ownership of it, and we never receive it: Arkiv cannot connect to the internet, and we have no server for it to be sent to. Because we never receive it, we cannot read it, recover it or hand it to anyone.</p>
+<h2>Reminders are a help, not a guarantee</h2>
+<p>Phones can delay or stop an app's reminders, and a date read from a paper can be read wrong. Check the dates Arkiv shows against the papers themselves. Renewing on time stays your responsibility.</p>
+<h2>Backups are yours to keep</h2>
+<p>A backup file opens only with the password you chose for it. We cannot recover a lost password, and we cannot bring back a lost phone's papers without a backup. When you keep a backup in your Google Drive or anywhere else, that place's own terms apply to the file.</p>
+<h2>No warranty</h2>
+<p>Arkiv is provided as it is. To the extent the law allows, Zilloris is not liable for missed renewals, lost data or other losses from using it. Nothing here removes rights you have as a consumer that cannot be excluded under the law where you live.</p>
+<h2>Services we do not run</h2>
+<p>Google Play distributes the app and its updates, under Google Play's terms. Google's document scanner, part of Google Play services, runs the scanning screen. Google Drive, or whichever app holds your backup, stores it under its own terms. GitHub Pages publishes these pages at <code>zilloris.com</code>; they open in your browser. What each one involves is described in the <a href="/arkiv/privacy/">privacy policy</a>.</p>
+<h2>Changes</h2>
+<p>These terms may change with a future version; the new text is published here and the date above changes with it.</p>
+<h2>Contact</h2>
+<p>Questions about these terms: <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+  </div>
+</main>
+
+<footer class="appfoot">
+  <div class="inner">
+    <span>Arkiv is made by <a href="/">Zilloris</a></span>
+    <a href="mailto:support@zilloris.com">support@zilloris.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

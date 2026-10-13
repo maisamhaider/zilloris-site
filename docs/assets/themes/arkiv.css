@@ -1,0 +1,50 @@
+/* Arkiv - a real room: a warm wall, paper, oak and manila, with the house's
+   first blue accent. Tokens from the Design Registry entry, which takes them
+   from arkiv/design/board/arkiv-cabinet.html. Rubik sets everything, one
+   family on purpose, as it does in the app. */
+
+@font-face { font-family: "Rubik"; font-weight: 400; font-display: swap;
+             src: url("/assets/fonts/rubik-400.ttf") format("truetype"); }
+@font-face { font-family: "Rubik"; font-weight: 600; font-display: swap;
+             src: url("/assets/fonts/rubik-600.ttf") format("truetype"); }
+
+:root {
+  --ground: #F2EDE4; --card: #FFFEFB; --ink: #33302A; --muted: #7A7365;
+  --line: #E3DACB; --blue: #3F6FB0; --oak: #C2A171; --manila: #DDC28C;
+  --fine: #3E7D5A; --soon: #9E6B12; --ran-out: #BE4F44;
+  --display-font: "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body-font: "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono-font: ui-monospace, Consolas, monospace;
+  --link: #3F6FB0; --accent-strong: #3F6FB0; --code-bg: #F2EDE4;
+}
+
+/* the oak edge under the header, as the cabinet has above its drawers */
+.apphead { background: var(--card); border-bottom: 1px solid var(--line); position: relative; }
+.apphead::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px;
+  height: 2px; background: var(--oak);
+}
+.brand-icon { border-radius: 22%; }
+.brand-name { font-weight: 600; letter-spacing: -.01em; }
+
+.tabs a { border-radius: 6px; background: #EAE3D6; font-weight: 500; }
+.tabs a:hover { background: #E2D9C8; }
+.tabs a[aria-current="page"] { background: var(--blue); color: #FFFEFB; }
+
+/* the title sits in a brass label frame, as every drawer front does */
+.page h1 { font-weight: 600; letter-spacing: -.02em; }
+.page h1 .mark {
+  display: inline-block; padding: 6px 16px 8px;
+  background: var(--card); border: 1px solid var(--oak); border-radius: 4px;
+  box-shadow: inset 0 0 0 3px var(--card), inset 0 0 0 4px #E8DCC4;
+}
+.status { font-family: var(--mono-font); font-size: 12.5px; color: var(--muted); }
+
+/* a manila folder: the warm card the papers sit in */
+.body {
+  background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--manila);
+  border-radius: 3px 10px 3px 3px;
+  padding: 26px clamp(18px, 4vw, 34px) 20px;
+}
+.body h2 { font-weight: 600; font-size: 21px; letter-spacing: -.01em; }
+.lede { color: var(--ink); font-size: 17px; }

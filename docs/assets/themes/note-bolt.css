@@ -1,35 +1,39 @@
-/* Note Bolt - the app itself: pastel sticky notes on a light neutral ground,
-   DM Serif Display, black controls, pine as the primary. Tokens from
-   note-taking's colors.xml (primary #16624B) via the Design Registry.
-   The app's only bundled font is DM Serif Display; everything else uses the
-   phone's own sans-serif, and so does this page.
+/* Note Bolt - ink on paper: a warm near-white ground, black controls, and the
+   note colours the app tints its cards with. Tokens from note-taking's
+   values/colors.xml, read 13 Oct 2026 after Raheel's UI pass, which moved the
+   app from pine-and-DM-Serif to this quieter set and from DM Serif Display to
+   Inter. The app ships Inter; so does this page.
 
-   The store listing and channel covers use a different set (cyan with a
-   yellow wordmark). Which one is Note Bolt's real identity is an open
-   decision on the Shelf; these pages follow the app, as asked. */
+   The store listing and channel covers still use a different set (cyan with a
+   yellow wordmark). Which one is Note Bolt's real identity is an open decision
+   on the Shelf; these pages follow the app, as asked. */
 
-@font-face { font-family: "DM Serif Display"; font-weight: 400; font-display: swap;
-             src: url("/assets/fonts/dm-serif-display-400.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap;
+             src: url("/assets/fonts/inter-400.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap;
+             src: url("/assets/fonts/inter-600.ttf") format("truetype"); }
 
 :root {
-  --ground: #FAFAFA; --card: #FFFFFF; --ink: #191C1A; --muted: #5C635E;
-  --line: #E3E6E2; --pine: #16624B;
-  --rose: #FFC7EA; --lemon: #FFE89E; --sky: #BCF0FF; --mint: #D1FCBB; --orange: #F7A375;
-  --display-font: "DM Serif Display", Georgia, serif;
-  --body-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ground: #FAFAF8; --card: #FFFFFF; --ink: #2E2A24; --muted: #6B6659;
+  --line: #CFCEC8; --control: #1A1A18;
+  --sand: #F6ECD9; --coral: #FBE0D6; --mint: #DDEFE2; --sky: #DCEAF6;
+  --lavender: #E8E2F4; --rose: #F8DFE9; --lemon: #F7F0CC;
+  --display-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono-font: ui-monospace, Consolas, monospace;
-  --link: #16624B; --accent-strong: #16624B; --code-bg: #EEF1ED;
+  --link: #1A1A18; --accent-strong: #1A1A18; --code-bg: #F0EFEB;
 }
 
 .apphead { background: var(--card); border-bottom: 1px solid var(--line); }
 .brand-icon { border-radius: 24%; }
-.brand-name { font-size: 27px; }
+.brand-name { font-weight: 600; font-size: 24px; letter-spacing: -.02em; }
 
-.tabs a { border-radius: 999px; background: #EEF0ED; font-weight: 500; }
-.tabs a:hover { background: #E3E6E2; }
-.tabs a[aria-current="page"] { background: var(--ink); color: #FFFFFF; }
+.tabs a { border-radius: 999px; background: #F0EFEB; font-weight: 500; }
+.tabs a:hover { background: #E4E3DE; }
+.tabs a[aria-current="page"] { background: var(--control); color: #FFFFFF; }
 
 /* the title sits on a note, the way a note's title would in the app */
+.page h1 { font-weight: 600; letter-spacing: -.025em; }
 .page h1 .mark {
   display: inline-block; background: var(--lemon); padding: 10px 18px 12px;
   border-radius: 16px; transform: rotate(-1deg);
@@ -37,18 +41,19 @@
 .status { margin-top: 14px; }
 
 .body {
-  background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px;
   padding: 26px clamp(18px, 4vw, 34px) 18px;
 }
-.body h2 { font-weight: 400; font-size: 25px; }
+.body h2 { font-weight: 600; font-size: 22px; letter-spacing: -.015em; }
 
-/* on About, each section heading is a small sticky note of its own colour */
+/* on About, each section heading is a small note of its own colour */
 .doc-about .body h2 {
-  display: inline-block; font-size: 21px; padding: 6px 14px 7px; border-radius: 12px;
+  display: inline-block; font-size: 20px; padding: 6px 14px 7px; border-radius: 12px;
   margin-bottom: .6em;
 }
-.doc-about .body h2:nth-of-type(5n+1) { background: var(--rose); }
-.doc-about .body h2:nth-of-type(5n+2) { background: var(--sky); }
-.doc-about .body h2:nth-of-type(5n+3) { background: var(--mint); }
-.doc-about .body h2:nth-of-type(5n+4) { background: var(--lemon); }
-.doc-about .body h2:nth-of-type(5n+5) { background: var(--orange); }
+.doc-about .body h2:nth-of-type(6n+1) { background: var(--rose); }
+.doc-about .body h2:nth-of-type(6n+2) { background: var(--sky); }
+.doc-about .body h2:nth-of-type(6n+3) { background: var(--mint); }
+.doc-about .body h2:nth-of-type(6n+4) { background: var(--lemon); }
+.doc-about .body h2:nth-of-type(6n+5) { background: var(--coral); }
+.doc-about .body h2:nth-of-type(6n+6) { background: var(--lavender); }

@@ -1,0 +1,43 @@
+<!-- title: Arkiv — Privacy Policy -->
+<!-- written 13 Oct 2026 from the code at arkiv 96ff8d7 and its packaged manifest; this file is the source.
+     Shape follows content/sabr/privacy.html: the App/Updated/Contact opening line with bold labels,
+     then plain <h2> sections. Keep it in step with arkiv/store/DATA-SAFETY.md.
+     The central claim — Arkiv has no internet permission — is true because AndroidManifest.xml
+     removes INTERNET even when a library asks for it; check `aapt2 dump permissions` before every
+     release, or this page becomes false. -->
+<h2>Arkiv — Privacy Policy</h2>
+<p><strong>App:</strong> Arkiv (<code>com.zilloris.arkiv</code>)<br>
+<strong>Updated:</strong> 13 October 2026<br>
+<strong>Contact:</strong> <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+<h2>The short version</h2>
+<p>Your family's papers stay on your phone. Arkiv cannot connect to the internet at all: it does not have Android's internet permission, so it has no way to send anything anywhere. There is no Arkiv account, no Arkiv server, no analytics, no crash reporting, no advertising and no advertising identifier.</p>
+<p>Your papers only leave the phone when you send them yourself — when you share or print one, or when you keep a backup in a place you chose, such as your own Google Drive.</p>
+<h2>What the app stores, and where</h2>
+<p>The people you add (a name and a colour for each drawer), your documents (their kind, name, number, and issue and end dates), the pictures of their pages, and your settings. All of it is kept in the app's own private storage on your phone.</p>
+<p>The list of documents is kept in an encrypted database, and every picture is encrypted too, with keys held by your phone's secure hardware. Another app on the phone cannot read them.</p>
+<p>Android's own phone backup does not copy Arkiv's data. The only backups of your papers are the ones you make, described below.</p>
+<h2>Scanning a paper</h2>
+<p>When you scan a paper, Google's document scanner opens. It is part of Google Play services on your phone: it finds the paper's edges, straightens and cleans the page, and hands the pages straight back to Arkiv, which encrypts them. Google Play services may download the scanner the first time it is used, and it runs that screen under <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Arkiv then reads the dates and the document number from the clean pages on your phone, with Google's ML Kit and a reading model built into the app. ML Kit's usage reporting is switched off, and Arkiv could not send it anyway.</p>
+<p>On a phone without Google's scanner, Arkiv uses the camera itself, and the reading happens on the phone in the same way. A photo you choose from your gallery is read the same way too; Arkiv keeps its own encrypted copy, and the photo in your gallery is left as it was.</p>
+<h2>Reminders and your calendar</h2>
+<p>Reminders before a paper runs out are scheduled and shown by your phone. No message comes from a server.</p>
+<p>If you switch on "Also put them in my calendar", Arkiv writes all-day events such as "Sara’s passport — renew it" into your phone’s main calendar. If that calendar is synced — a Google calendar, for example — its provider stores those events like any others. Switching the option off removes the events Arkiv made.</p>
+<h2>Sharing and printing</h2>
+<p>"Share it as a PDF", "Print" and the PDF tools make a file on your phone and hand it to the app or printer you pick. What happens next is up to you and that app. Files made for sharing are deleted from Arkiv's own storage within an hour.</p>
+<h2>Backups</h2>
+<p>"Save a backup file" makes one file, locked with a password you choose, and saves it where you pick.</p>
+<p>"Keep a backup up to date" asks for a password and then a place, chosen with your phone's own file picker — usually your Google Drive. Arkiv locks the backup with your password on your phone and writes it to that place again after every change. The app that owns the place (Google Drive, for example) stores the file and carries it, under your own account with that app and its terms; Arkiv itself never goes online. The password and the place are kept on your phone, encrypted. Turning the switch off stops the renewing; the file stays where it is until you delete it.</p>
+<p>A backup opens only with its password. Without it nobody can open the file — not us, not Google, and not you, so write it down somewhere that is not this phone. We cannot recover a lost password.</p>
+<h2>Permissions</h2>
+<p>Camera: to scan a paper on phones without Google's scanner. Notifications: for the reminders, if you allow them. Calendar: only if you switch on the calendar option. Fingerprint: if you ask Arkiv to lock, your phone checks your fingerprint, face or PIN — Arkiv never sees them. On Android 9 and older, storage: to save pictures from a PDF into your gallery.</p>
+<p>Android's scheduling library adds ordinary system permissions so reminders still come after the phone restarts. None of them lets Arkiv reach the internet.</p>
+<h2>These pages</h2>
+<p>This policy and the terms are published at <code>zilloris.com</code>, on GitHub Pages, a GitHub service. When you open one from Arkiv's Settings, your web browser loads it — not Arkiv. Like any web page, that request carries the page's address and your network address, and nothing of yours from Arkiv.</p>
+<h2>Deleting your data</h2>
+<p>Uninstalling Arkiv removes everything it stored on your phone. We hold no copy anywhere. Backup files you made stay where you put them until you delete them.</p>
+<h2>Children</h2>
+<p>Arkiv is not directed at children under 13.</p>
+<h2>Changes</h2>
+<p>If this policy changes, the new version is published at this address and the date above changes with it.</p>
+<h2>Contact</h2>
+<p>Questions: <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>

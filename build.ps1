@@ -46,9 +46,14 @@ $fonts = @{
   'one-page\app\src\main\res\font\instrument_sans_400.ttf'        = 'instrument-sans-400.ttf'
   'one-page\app\src\main\res\font\instrument_sans_600.ttf'        = 'instrument-sans-600.ttf'
   'one-page\app\src\main\res\font\geist_mono_400.ttf'             = 'geist-mono-400.ttf'
-  'note-taking\app\src\main\res\font\dmserifdisplay_regular.ttf'  = 'dm-serif-display-400.ttf'
+  'note-taking\app\src\main\res\font\inter_regular.ttf'           = 'inter-400.ttf'
+  'note-taking\app\src\main\res\font\inter_semibold.ttf'          = 'inter-600.ttf'
+  'arkiv\app\src\main\res\font\rubik_regular.ttf'                 = 'rubik-400.ttf'
+  'arkiv\app\src\main\res\font\rubik_semibold.ttf'                = 'rubik-600.ttf'
   'sabr\app\src\main\res\font\cormorant_garamond_italic.ttf'      = 'cormorant-garamond-italic.ttf'
   'sabr\app\src\main\res\font\karla.ttf'                          = 'karla.ttf'
+  'pontil\app\src\main\res\font\newsreader_italic.ttf'            = 'newsreader-italic.ttf'
+  'pontil\app\src\main\res\font\manrope.ttf'                      = 'manrope.ttf'
 }
 foreach ($f in $fonts.Keys) {
   Copy-Item (Join-Path $root $f) (Join-Path $docs "assets\fonts\$($fonts[$f])")
@@ -182,6 +187,9 @@ foreach ($a in $paged) {
     $html = $tpl.Replace('{{PAGE_TITLE}}', (Esc $pageTitle)).
                  Replace('{{DESCRIPTION}}', (Esc "$h1 for $($a.name), an Android app by Zilloris.")).
                  Replace('{{CANONICAL}}', "https://zilloris.com/$($a.id)/$($d.path)").
+                 Replace('{{BRAND_ICON}}', $(if ($a.icon) {
+                   "<img class=""brand-icon"" src=""/assets/icons/$($a.id).png"" alt="""" width=""48"" height=""48"">"
+                 } else { '' })).
                  Replace('{{ID}}', $a.id).Replace('{{DOC}}', $d.doc).
                  Replace('{{NAME}}', (Esc $a.name)).Replace('{{NAV}}', $nav).
                  Replace('{{H1}}', (Esc $h1)).Replace('{{STATUS}}', $status).

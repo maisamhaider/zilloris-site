@@ -70,6 +70,17 @@
       "icon": "sabr/design/icon/export/store/play-store-512.png"
     },
     {
+      "id": "arkiv",
+      "name": "Arkiv",
+      "onPlay": false,
+      "pages": true,
+      "line": "A safe place for your family's papers.",
+      "status": "dev",
+      "statusText": "In development",
+      "accent": "#3F6FB0",
+      "icon": ""
+    },
+    {
       "id": "atomiser",
       "name": "Atomiser",
       "onPlay": false,
@@ -78,6 +89,17 @@
       "statusText": "In design",
       "accent": "#E39A2D",
       "icon": "atomiser/design/icon/png/playstore-512.png"
+    },
+    {
+      "id": "pontil",
+      "name": "Pontil",
+      "onPlay": false,
+      "pages": true,
+      "line": "Press to breathe out. Let go to breathe in.",
+      "status": "dev",
+      "statusText": "In development",
+      "package": "com.zilloris.pontil",
+      "accent": "#FF8A2A"
     }
   ]
 }
