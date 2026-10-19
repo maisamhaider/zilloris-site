@@ -47,7 +47,7 @@
 
   <div class="body">
 <p><strong>App:</strong> One Page: Read a Page a Day (<code>com.zilloris.onepage</code>)<br>
-<strong>Updated:</strong> 17 October 2026<br>
+<strong>Updated:</strong> 19 October 2026<br>
 <strong>Contact:</strong> <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
 <h2>The short version</h2>
 <p>Your reading stays on your phone. Your books, their text, your highlights, your notes and your reading log are stored on your device and are never uploaded.</p>
@@ -55,10 +55,10 @@
 <p>If you search for a book, the words you type go to Open Library, a free book catalogue run by the Internet Archive, and so does the request for that book's cover when you add it. Nothing about your reading goes with them. Searching the free books happens on your phone, so what you type there is not sent anywhere. Their covers, a book's details when you open its page, and the book itself when you add it come from Project Gutenberg (gutenberg.org).</p>
 <p>Android's own backup, also described below, can copy your reading record — never your books — into your own Google Drive if you have device backup switched on.</p>
 <h2>What the app stores, and where</h2>
-<p>Your books and their text, the pages you have read, the lines you keep, your streak, and your settings are stored in the app's own private storage on your device.</p>
-<p>Books you import stay there. The file you choose is copied into the app's private storage so it can be read offline. It is never uploaded, and the app has no way to share the book's text with anyone.</p>
+<p>Your books and their text, the pages you have read, the lines you keep, your streak, the name you give the app, and your settings are stored in the app's own private storage on your device.</p>
+<p>Books you import stay there. The EPUB or PDF file you choose is copied into the app's private storage so it can be read offline. It is never uploaded, and the app has no way to share the book's text with anyone.</p>
 <h2>What leaves the device</h2>
-<p>What you send yourself: when you tap share — a line from your canon, a receipt, or an export of your notes — Android hands that one item to the app you pick.</p>
+<p>What you send yourself: when you tap share — a line from your canon, a receipt, or an export of your notes — Android hands that one item to the app you pick. If you gave the app your name, the cards and the export carry it.</p>
 <p>And two more kinds of request.</p>
 <p><strong>Book search:</strong> when you press search, the words you typed — a title, an author or an ISBN — are sent to Open Library (openlibrary.org, run by the Internet Archive) to find matching books, and when you add one, its cover picture is downloaded from Open Library. Nothing is sent while you type, only when you press search. Open Library sees these requests and your internet address, under its own privacy policy.</p>
 <p><strong>Free books:</strong> searching Project Gutenberg's free books happens on your phone — the list of books is inside the app. As you browse, their covers are loaded from gutenberg.org; opening a book's page loads its details from there; and adding a book downloads its file from there. Gutenberg sees which covers, pages and books, and your internet address, under Project Gutenberg's own privacy policy. Nothing about your own reading goes with these requests.</p>
@@ -66,7 +66,7 @@
 <h2>Crash reports, usage counts, performance, and configuration</h2>
 <p><strong>Crash reports, usage counts and performance timings are optional.</strong> The app asks once, after you have set up your reading, and sends nothing to Firebase unless you agree. You can change your answer at any time in Settings → Help improve the app. The app works exactly the same either way.</p>
 <p>Crash reports (Firebase Crashlytics). If the app crashes, a report of what the code was doing at that moment — the technical trace, your device model and Android version — is sent so the fault can be fixed. It never contains the text of your books or anything you wrote.</p>
-<p>Usage counts (Firebase Analytics). The app counts how its features are used — how often the reader is opened, which screens are visited — tied to a random installation identifier, not to your name, email, or anything that identifies you. Collection of the advertising identifier is switched off in the app itself: there are no ads, so there is nothing to measure.</p>
+<p>Usage counts (Firebase Analytics). The app counts how its features are used — how often the reader is opened, which screens are visited — tied to a random installation identifier, not to your name, email, or anything that identifies you. It also counts which shelves of free books are opened, what kind of book is added (your own file, a built-in or free book, or one you search for — with its shelf and language, never its title), and how long a day's page is open, in rough steps. Only if you agreed, and never the name of a book or the words you search for. Collection of the advertising identifier is switched off in the app itself: there are no ads, so there is nothing to measure.</p>
 <p>Configuration (Firebase Remote Config). The app periodically asks for its own settings — for example, an updated link to this policy. This is a download, not an upload: no reading data travels with it.</p>
 <p>Performance traces (Firebase Performance Monitoring). The app measures how long its own screens and requests take — app start, page render, config fetches — so slowness can be found and fixed. Timings and device model, never content.</p>
 <p>These services are run for us by Google LLC, which processes this data on our behalf under <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Telemetry is kept by Firebase for a limited period and deleted on Google's standard schedule; there is no account, so none of it can be looked up by who you are.</p>
