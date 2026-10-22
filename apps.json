@@ -39,7 +39,8 @@
       "pages": true,
       "line": "A notepad and to-do lists.",
       "status": "testing",
-      "statusText": "In testing on Google Play",
+      "statusText": "Beta on Google Play",
+      "package": "com.zilloris.notebolt.notepad.notes",
       "accent": "#56C2DC",
       "icon": "note-taking/Store Asset NoteBolt/play-ready/icon_512_playstore.png",
       "blogger": {
