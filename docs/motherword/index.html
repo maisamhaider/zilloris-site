@@ -1,0 +1,80 @@
+<!doctype html>
+<!--
+  One app page: About, Privacy or Terms. build.ps1 fills the {{...}} slots.
+
+  THE APPS PARSE THIS PAGE. One Page and Manuscript download the published
+  policy and set it in their own type, so this structure is a contract, not
+  just a layout:
+
+    <main>            the document region - the apps read inside it
+    <h1>              the document's title
+    <h2>              a section; three or more, or the app refuses the page
+    header, nav, footer   skipped by the parsers - keep chrome outside <main>
+
+  Manuscript's documents also carry classes the parser reads: num, effective,
+  intro, short, warning, legalese. Change any of this and both apps fall back
+  to the older text built into them, with nothing to tell us it happened.
+  Check with the app's parser after a structural change (manuscript's
+  LegalHtmlTest, one-page's LegalHtmlTest), not by eye.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motherword — Your mother tongue first, for every language</title>
+<meta name="description" content="Motherword for Motherword, an Android app by Zilloris.">
+<link rel="canonical" href="https://zilloris.com/motherword/">
+<meta property="og:title" content="Motherword — Your mother tongue first, for every language">
+<meta property="og:url" content="https://zilloris.com/motherword/">
+<link rel="icon" href="/assets/icons/motherword.png" type="image/png">
+<link rel="stylesheet" href="/assets/app-base.css">
+<link rel="stylesheet" href="/assets/themes/motherword.css">
+</head>
+<body class="app-motherword doc-about">
+
+<header class="apphead">
+  <div class="inner">
+    <a class="brand" href="/motherword/">
+      
+      <span class="brand-name">Motherword</span>
+    </a>
+    <nav class="tabs" aria-label="Motherword"><a href="/motherword/" aria-current="page">About</a><a href="/motherword/privacy/">Privacy</a><a href="/motherword/terms/">Terms</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <h1><span class="mark">Motherword</span></h1>
+  <p class="status">In development — <a href="https://play.google.com/store/apps/details?id=com.zilloris.motherword">get Motherword</a></p>
+  <div class="body">
+<p class="lede">Your mother tongue first, for every language.</p>
+<p>Motherword gives you back the language of your home: the words you half know, the letters of its script you never met, and your elders' voices. A few words a day, in your family's language, and nothing is ever marked wrong.</p>
+
+<h2>Take a word back</h2>
+<p>Five words a day, each with how it sounds, what it means and one everyday sentence. Beside each one sits the borrowed word people say instead. Both are right; you keep the one you want to use. A kept word becomes a painted tile in your courtyard, and comes back for a look after a day, three days, a week, two weeks and a month.</p>
+
+<h2>Letters you don't know yet</h2>
+<p>If you already read your country's script, most of your home script is already yours. The app shows only the letters that differ, with the sound each makes and a word that uses it. Where the north and the south say a letter differently, you choose your family's way.</p>
+
+<h2>Ask your elders</h2>
+<p>Each week brings one question to ask an elder: what your mother called you when you were small, what the first rain of the season is called. Record the answer in the app, or send the question on WhatsApp and share the voice note back into Motherword. Elders never need the app.</p>
+
+<h2>Family word book</h2>
+<p>Every voice you keep, by person, on your phone. Play it, share it, or let it go. Recording and keeping is free, with nothing to unlock.</p>
+
+<h2>Kept on your phone</h2>
+<p>No account, no sign-up and nothing to sync. Your kept words, your recordings, the names you give the people in them and your settings are stored on your phone, not on our servers. A recording leaves it only when you share it yourself. If your phone's own backup is switched on, Android includes Motherword in it. The details are in the <a href="/motherword/privacy/">privacy policy</a>.</p>
+
+<h2>Free to download</h2>
+<p>Motherword is free, with no ads and nothing to buy inside it.</p>
+  </div>
+</main>
+
+<footer class="appfoot">
+  <div class="inner">
+    <span>Motherword is made by <a href="/">Zilloris</a></span>
+    <a href="mailto:support@zilloris.com">support@zilloris.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

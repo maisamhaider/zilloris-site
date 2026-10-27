@@ -92,6 +92,18 @@
       "icon": "atomiser/design/icon/png/playstore-512.png"
     },
     {
+      "id": "motherword",
+      "name": "Motherword",
+      "onPlay": false,
+      "pages": true,
+      "line": "Your mother tongue first, for every language.",
+      "status": "dev",
+      "statusText": "In development",
+      "package": "com.zilloris.motherword",
+      "accent": "#12A6DA",
+      "icon": ""
+    },
+    {
       "id": "pontil",
       "name": "Pontil",
       "onPlay": false,

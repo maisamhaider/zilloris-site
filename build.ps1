@@ -54,6 +54,9 @@ $fonts = @{
   'sabr\app\src\main\res\font\karla.ttf'                          = 'karla.ttf'
   'pontil\app\src\main\res\font\newsreader_italic.ttf'            = 'newsreader-italic.ttf'
   'pontil\app\src\main\res\font\manrope.ttf'                      = 'manrope.ttf'
+  'mother-tongue\app\src\main\assets\fonts\baloo2.ttf'            = 'baloo2.ttf'
+  'mother-tongue\app\src\main\assets\fonts\mukta_regular.ttf'     = 'mukta-400.ttf'
+  'mother-tongue\app\src\main\assets\fonts\mukta_bold.ttf'        = 'mukta-700.ttf'
 }
 foreach ($f in $fonts.Keys) {
   Copy-Item (Join-Path $root $f) (Join-Path $docs "assets\fonts\$($fonts[$f])")

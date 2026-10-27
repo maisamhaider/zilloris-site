@@ -1,0 +1,83 @@
+<!doctype html>
+<!--
+  One app page: About, Privacy or Terms. build.ps1 fills the {{...}} slots.
+
+  THE APPS PARSE THIS PAGE. One Page and Manuscript download the published
+  policy and set it in their own type, so this structure is a contract, not
+  just a layout:
+
+    <main>            the document region - the apps read inside it
+    <h1>              the document's title
+    <h2>              a section; three or more, or the app refuses the page
+    header, nav, footer   skipped by the parsers - keep chrome outside <main>
+
+  Manuscript's documents also carry classes the parser reads: num, effective,
+  intro, short, warning, legalese. Change any of this and both apps fall back
+  to the older text built into them, with nothing to tell us it happened.
+  Check with the app's parser after a structural change (manuscript's
+  LegalHtmlTest, one-page's LegalHtmlTest), not by eye.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use — Motherword</title>
+<meta name="description" content="Terms of Use for Motherword, an Android app by Zilloris.">
+<link rel="canonical" href="https://zilloris.com/motherword/terms/">
+<meta property="og:title" content="Terms of Use — Motherword">
+<meta property="og:url" content="https://zilloris.com/motherword/terms/">
+<link rel="icon" href="/assets/icons/motherword.png" type="image/png">
+<link rel="stylesheet" href="/assets/app-base.css">
+<link rel="stylesheet" href="/assets/themes/motherword.css">
+</head>
+<body class="app-motherword doc-terms">
+
+<header class="apphead">
+  <div class="inner">
+    <a class="brand" href="/motherword/">
+      
+      <span class="brand-name">Motherword</span>
+    </a>
+    <nav class="tabs" aria-label="Motherword"><a href="/motherword/">About</a><a href="/motherword/privacy/">Privacy</a><a href="/motherword/terms/" aria-current="page">Terms</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <h1><span class="mark">Terms of Use</span></h1>
+
+  <div class="body">
+<p><strong>App:</strong> Motherword (<code>com.zilloris.motherword</code>)<br>
+<strong>Updated:</strong> 13 October 2026<br>
+<strong>Contact:</strong> <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+<h2>Using the app</h2>
+<p>Motherword is an Android app for taking your mother tongue back: a few words a day in the language of your family, the letters of its script you have not met, and your elders' voices, recorded and kept on your phone. It is free to download, it has no ads and nothing to buy inside it, and it has no account. Installing it is the whole of it — there is nothing to register and nothing to cancel.</p>
+<p>Motherword is not directed at children under 13.</p>
+<h2>Your words and your recordings are yours</h2>
+<p>What you put into Motherword belongs to you: the words you keep, the recordings you make or bring in, and the names you give the people in them. We claim no ownership of any of it, and we never receive it: there is no account, no sync and no server of ours for it to be sent to. Because we never receive it, we cannot read it, cannot recover it, and have nothing to hand to anyone else.</p>
+<h2>Recording other people</h2>
+<p>The recordings in the family book are made by you, of people you know. You are responsible for asking them first, and for where you send a recording if you share one out of the app. The app makes no recording on its own and shares nothing on its own.</p>
+<h2>The language packs</h2>
+<p>The words, sentences, letters and questions in a language pack are written and reviewed by the people named in the pack. A pack marked as a draft has not finished its review, and the app says so on the card. They are offered to help, not as a dictionary: the way your family says a word is right, and the app never marks a word wrong.</p>
+<h2>Your copies are yours to keep</h2>
+<p>Motherword keeps everything in one place: your phone. The family book can hand a recording to Android's share sheet, to a place you choose; once it is there, it is subject to that service's terms and outside anything this app can control. Deleting the app deletes everything it kept, immediately and permanently, and a recording you shared out earlier is not affected.</p>
+<h2>No warranty</h2>
+<p>The app is provided as it is. It is a small app on a phone: it can be uninstalled, a device can be lost, and data kept in one place can be gone. Share out anything you would be sorry to lose. To the extent the law allows, the app and its author are not liable for lost data or lost time.</p>
+<p>Nothing here removes rights you have as a consumer that cannot be excluded under the law where you live.</p>
+<h2>Services we do not run</h2>
+<p>Google Play distributes the app and delivers its updates, and Google Play's terms apply to that. Google Firebase supplies the app with the addresses of this document and the privacy policy (Remote Config), and GitHub Pages publishes both at <code>zilloris.com</code>; when you open either one inside the app it is downloaded from there, and GitHub's terms apply to that request. WhatsApp and any other app you hand a question or a recording to are under their own terms. What each carries is described in the <a href="/motherword/privacy/">privacy policy</a>.</p>
+<h2>Changes</h2>
+<p>These terms may change with a future version, and the updated date above changes with them. The app downloads this page when you open the terms inside it, so it shows the current text.</p>
+<h2>Contact</h2>
+<p>Questions about these terms: <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+  </div>
+</main>
+
+<footer class="appfoot">
+  <div class="inner">
+    <span>Motherword is made by <a href="/">Zilloris</a></span>
+    <a href="mailto:support@zilloris.com">support@zilloris.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
