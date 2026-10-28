@@ -2,9 +2,9 @@
 <!-- imported 2026-09-22 from https://zilloris.blogspot.com/2026/09/manuscript-privacy-policy.html, word for word; this file is now the source -->
 <p class="app">Manuscript</p>
 <h2>Privacy Policy</h2>
-<p class="effective">Effective 23-Sep-2026</p>
+<p class="effective">Effective 28-Oct-2026</p>
 <p class="intro">Manuscript is made by Zilloris. This policy explains what the app does with information, in the same plain register the app uses.</p>
-<p class="short">The short version. Your writing stays on your phone. Manuscript has no account, no login, no server of its own, and no way to send your draft anywhere. What does leave your phone is a small amount of information about how the app is used and when it crashes. It cannot contain any part of your draft, for a reason set out below.</p>
+<p class="short">The short version. Your writing stays on your phone. Manuscript has no account, no login, no server of its own, and no way to send your draft anywhere. What does leave your phone is a small amount of information about how the app is used and when it crashes. It cannot contain any part of your draft, for a reason set out below. If you scan a page you wrote on paper, your phone reads it: the picture and the words read from it never leave the phone, and the picture is deleted as soon as it has been read.</p>
 <h2>What the app keeps on your phone</h2>
 <p>Everything you make in Manuscript lives on the device and only on the device.</p>
 <ul><li>The pages. Each page is a plain <code>.txt</code> file in the app’s private storage. Plain text, no markup, nothing added.</li>
@@ -15,7 +15,7 @@
 <p>Android does not copy any of this either. The app switches off Android’s automatic backup, and its backup rules exclude the files, the database and the settings from both Google Drive backup and phone-to-phone transfer. Your draft is not in your Google account.</p>
 <p>We never receive any of it. There is no server to receive it with.</p>
 <h2>What is collected and sent</h2>
-<p>Manuscript uses five Google services. Google acts as our data processor: it handles this information on our instructions, to run these services for us.</p>
+<p>Manuscript uses six Google services. Google acts as our data processor: it handles this information on our instructions, to run these services for us.</p>
 <h3>1. Firebase Analytics — how the app is used</h3>
 <p>What the app itself reports. Two kinds of thing, and nothing else.</p>
 <p><em>Which screen you are on.</em> One of eighteen fixed names, sent when the screen changes: <code>a1_splash</code>, <code>a2_what</code>, <code>a3_when</code>, <code>a4_bring</code>, <code>b1_page</code>, <code>b2_dry</code>, <code>b3_desk</code>, <code>b4_keep</code>, <code>b6_dried</code>, <code>c1_drawer</code>, <code>c3_import</code>, <code>c4_resurrect</code>, <code>c5_you</code>, <code>c7_outline</code>, <code>c9_pages</code>, <code>c10_copy</code>, <code>c12_guide</code>, <code>c13_legal</code>.</p>
@@ -45,6 +45,10 @@
 <p>The app asks the Play Store app already installed on your phone whether there is an update. This is a message between two apps on your device; the app sends nothing to us and nothing of yours to Google. Whatever the Play Store itself reports to Google about your device and account is governed by Google’s own policy, not by this one.</p>
 <h3>5. The web pages — the text of this policy, and of the terms</h3>
 <p>This policy and the terms of use are published at <code>zilloris.com</code>, on GitHub Pages, a GitHub service. When you open either one inside the app, the app downloads that page, so that what you read is what is in force today. It is an ordinary web request, sent only when you open one of those two pages and never in the background. It carries the page’s address, a note that it came from Manuscript and which version, and — like any web request — your network address. Nothing from your draft or your settings goes with it. The app keeps the last copy it downloaded, and shows that, or the copy it was installed with, when there is no connection.</p>
+<h3>6. Google ML Kit and Google’s document scanner — when you scan a page</h3>
+<p>Reading the page. “Scan a paper page” opens Google’s document scanner. It is part of Google Play services on your phone: it shows its own camera screen, finds the edges of the page and straightens it. Manuscript itself holds no camera permission. Google Play services may download the scanner the first time it is used, and it runs that screen under Google’s own privacy policy.</p>
+<p>The scanner hands the picture back to Manuscript, inside the app’s private storage. Manuscript then reads the words in it with Google’s ML Kit, using a reading model that is built into the app, so the reading happens on your phone. The picture is deleted as soon as it has been read, whether or not any words were found. The words go onto your page and nowhere else.</p>
+<p>What ML Kit sends. While it reads, ML Kit sends Google a note about the reading itself: which reader ran and with which settings, how many pages, how long it took, any error, and the picture’s size and format. Google’s uploader adds your device model, Android version, language and region, the kind of network connection and the time zone, and an ML Kit identifier for the installation. It never sends the picture or the words. Google uses these notes to keep ML Kit working and to find faults in it. They are sent only when you scan a page, and the app has no switch for them.</p>
 <h2>Why your draft cannot be collected, even by mistake</h2>
 <p>This is the strongest thing the app has to say, so here is exactly how it works.</p>
 <p>The only code in Manuscript that can send anything is a single small piece of code we call the analytics facade. It offers callers one method, and that method accepts three things:</p>
@@ -54,7 +58,7 @@
 </ul>
 <p>There is no way to pass it a piece of text. No second version of the method accepts one. A programmer who wanted to send a sentence of your draft could not do it by getting something wrong — they would have to deliberately add a new method, and that change would be visible in the app’s source.</p>
 <p>Your page text also never enters the database, so there is no table anywhere that a future feature could accidentally read from and report. Kept lines and strikes are stored as positions in a file. The pages themselves live only as files, behind a single piece of code that reads and writes them and does nothing else.</p>
-<p>The app’s own code opens one kind of connection, and it cannot carry your writing either. When you open the privacy policy or the terms of use inside the app, it downloads the current text of that page — see 5. The web pages above. That code is handed the page’s address and nothing else, so there is nothing of yours for it to send. There is no web view: the text is set in the app’s own type. Everything else that reaches the network is Google’s Firebase code, and Google’s code is never handed your prose.</p>
+<p>The app’s own code opens one kind of connection, and it cannot carry your writing either. When you open the privacy policy or the terms of use inside the app, it downloads the current text of that page — see 5. The web pages above. That code is handed the page’s address and nothing else, so there is nothing of yours for it to send. There is no web view: the text is set in the app’s own type. Everything else that reaches the network is Google’s code: Firebase, and ML Kit’s notes about a scan, which hold counts and timings. Google’s code is never handed your prose, and the words read from a scanned page go only onto your page.</p>
 <h2>The advertising identifier</h2>
 <p>Manuscript does not collect it, and cannot.</p>
 <p>This is worth explaining, because it very nearly did. The Firebase Analytics library brings three advertising permissions in behind it — the Android advertising ID and two Privacy Sandbox attribution permissions — and they arrive whether or not an app has any advertising in it. Most apps that use Firebase ship them without noticing.</p>
@@ -69,7 +73,8 @@
 <li>An account of any kind. There is no sign-up, no login, no password field and no account system in the app.</li>
 <li>Your name, email address, phone number or postal address. There is nowhere in Manuscript to type any of them.</li>
 <li>Precise location. The app holds no location permission and calls no location service.</li>
-<li>Contacts, calendar, messages, photos, camera or microphone. No permission, no code.</li>
+<li>The pages you scan. The picture and the words read from it stay on the phone, and the picture is deleted once it has been read.</li>
+<li>Contacts, calendar, messages, your photos, camera or microphone. No permission. The scanner’s camera screen belongs to Google Play services, and a picture you pick in it from your gallery is copied for reading, then that copy is deleted; your gallery is left as it was.</li>
 <li>Files on your phone. The app holds no storage permission and cannot list or read any directory. Importing and exporting work only through Android’s own file picker, on the one file you choose.</li>
 <li>Payment information. There is no billing code in the app.</li>
 <li>Push notifications. There is no push messaging service. The single reminder is created by your phone, at the hour you picked, and never leaves it.</li>
@@ -88,12 +93,13 @@
 <li>Crash reporting. Legitimate interests, Art. 6(1)(f): keeping the app from losing a writer’s day to a bug.</li>
 <li>Remote Config. Legitimate interests, Art. 6(1)(f): being able to point the app at a current policy and require a security update.</li>
 <li>Play In-App Update. Legitimate interests, Art. 6(1)(f): keeping installed copies current and secure.</li>
+<li>Scanning a page. No basis is needed from us for the reading: it happens on your device and we never receive the picture or the words. ML Kit’s notes about the scan: legitimate interests, Art. 6(1)(f): a reader that works and is fixed when it breaks. They hold counts, timings and device context, never your writing.</li>
 <li>The daily reminder notification. Consent, Art. 6(1)(a): you choose the hour and grant the notification permission, and you can turn the notification off in “you”, or withdraw the permission in Android’s settings.</li>
 </ul>
 <p>Where we rely on legitimate interests, we have weighed them against your interests and rights. You can object to that processing at any time — see Your rights.</p>
 <h2>How long it is kept</h2>
 <p>On your phone: for as long as you keep it. Nothing expires, nothing is cleaned up behind you, and nothing is deleted without you asking. It goes when you use “delete everything”, or when you uninstall the app.</p>
-<p>At Google: analytics event data is kept for a limited period set on our Firebase console, currently 2 months, after which Google deletes the event-level records; aggregated counts may remain. Crash reports age out on Google’s own schedule. Installation identifiers persist until the app is uninstalled or its data is cleared, or until we delete them on request.</p>
+<p>At Google: analytics event data is kept for a limited period set on our Firebase console, currently 2 months, after which Google deletes the event-level records; aggregated counts may remain. Crash reports and ML Kit’s notes about scans age out on Google’s own schedule. Installation identifiers persist until the app is uninstalled or its data is cleared, or until we delete them on request.</p>
 <h2>Where it goes</h2>
 <p>Google processes this information on servers in the United States and in other countries outside the United Kingdom and the European Economic Area. Where information is transferred out of the UK or the EEA, the transfer is made under Google’s data processing terms, which incorporate the European Commission’s Standard Contractual Clauses and the UK Addendum to them.</p>
 <p>Your writing is not transferred anywhere, because it is not transferred at all.</p>
@@ -128,6 +134,7 @@
 <h2>Changes to this policy</h2>
 <p>If this policy changes in a way that affects what is collected or why, we will update it here, change the effective date at the top, and note what changed. A change that materially widens what we collect will be announced in the app’s release notes on Google Play before it takes effect, and the app will point at this page from you → privacy policy.</p>
 <p>What changed on 16-Sep-2026: the optional lock, described under Security. Nothing new is collected or sent.</p>
+<p>What changed on 28-Oct-2026, for version 1.3: scanning a page you wrote on paper, and the notes ML Kit sends Google about each scan (section 6). The picture and its words stay on the phone. The daily reminder is now booked as an alarm so it still comes after the phone restarts; that sends nothing.</p>
 <p>We will not add a way to collect your writing. If that ever changed, it would be an opt-in that asked you first and explained itself, not a quiet edit here.</p>
 <h2>Who we are, and how to reach us</h2>
 <p>Manuscript is published by Zilloris, the data controller for the information described in this policy.</p>
