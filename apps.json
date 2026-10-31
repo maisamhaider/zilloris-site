@@ -23,8 +23,9 @@
       "onPlay": true,
       "pages": true,
       "line": "Write one page a day until the draft is done.",
-      "status": "testing",
-      "statusText": "In testing on Google Play",
+      "status": "live",
+      "statusText": "On Google Play",
+      "package": "com.zilloris.manuscript",
       "accent": "#C8332B",
       "icon": "manuscript/store/graphics/ic_play_512.png",
       "blogger": {
