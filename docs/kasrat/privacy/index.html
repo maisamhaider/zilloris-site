@@ -1,0 +1,132 @@
+<!doctype html>
+<!--
+  One app page: About, Privacy or Terms. build.ps1 fills the {{...}} slots.
+
+  THE APPS PARSE THIS PAGE. One Page and Manuscript download the published
+  policy and set it in their own type, so this structure is a contract, not
+  just a layout:
+
+    <main>            the document region - the apps read inside it
+    <h1>              the document's title
+    <h2>              a section; three or more, or the app refuses the page
+    header, nav, footer   skipped by the parsers - keep chrome outside <main>
+
+  Manuscript's documents also carry classes the parser reads: num, effective,
+  intro, short, warning, legalese. Change any of this and both apps fall back
+  to the older text built into them, with nothing to tell us it happened.
+  Check with the app's parser after a structural change (manuscript's
+  LegalHtmlTest, one-page's LegalHtmlTest), not by eye.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Kasrat</title>
+<meta name="description" content="Privacy Policy for Kasrat, an Android app by Zilloris.">
+<link rel="canonical" href="https://zilloris.com/kasrat/privacy/">
+<meta property="og:title" content="Privacy Policy — Kasrat">
+<meta property="og:url" content="https://zilloris.com/kasrat/privacy/">
+<link rel="icon" href="/assets/icons/kasrat.png" type="image/png">
+<link rel="stylesheet" href="/assets/app-base.css">
+<link rel="stylesheet" href="/assets/themes/kasrat.css">
+</head>
+<body class="app-kasrat doc-privacy">
+
+<header class="apphead">
+  <div class="inner">
+    <a class="brand" href="/kasrat/">
+      <img class="brand-icon" src="/assets/icons/kasrat.png" alt="" width="48" height="48">
+      <span class="brand-name">Kasrat</span>
+    </a>
+    <nav class="tabs" aria-label="Kasrat"><a href="/kasrat/">About</a><a href="/kasrat/privacy/" aria-current="page">Privacy</a><a href="/kasrat/terms/">Terms</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <h1><span class="mark">Privacy Policy</span></h1>
+
+  <div class="body">
+<p><strong>App:</strong> Kasrat (<code>com.zilloris.kasrat</code>)<br>
+<strong>Updated:</strong> 31 October 2026<br>
+<strong>Contact:</strong> <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+<h2>The short version</h2>
+<p>Your training stays on your phone. Your plan, your workout log, your weights, your notes and your "It hurt" answers are stored on your device and the app never uploads them. There is no account, no sign-in and no sync.</p>
+<p>Only what you choose to share about your club leaves the phone: the machine types and how many there are, and your answers about them. That is shared under a random number, never your name, and only after you say yes.</p>
+<p>Whatever you choose, the app sends Google Firebase a few small things: a crash report if the app breaks, a short note each time the app opens, and a request for a few settings, such as where this policy lives. None of them carries your training or anything you wrote.</p>
+<p>There are no ads, no advertising identifier and no usage analytics, and nothing is sold or used to profile you. Android's own backup, described below, can copy part of the app's data into your own Google account if you have device backup switched on.</p>
+<h2>What the app stores, and where</h2>
+<p>In the app's own private storage on your phone:</p>
+<ul>
+<li>Your answers to the start questions: your goal, days a week, minutes each time and how much you have lifted before, and which body the pictures show.</li>
+<li>Your gyms and the names you gave them, the club each one is on the shared lists (if you linked one), the machines you ticked at each one and how many there are, your own machines that are not in the list, the muscles you corrected, and the seat and pad notes you wrote under "Yours".</li>
+<li>Your plan, and your workout log: which exercises you ticked, the sets, reps and weights, how each day felt, the days you skipped, logged later, or trained somewhere else.</li>
+<li>Each machine's details as you entered them: its kind, heaviest number, step and your working weight.</li>
+<li>Your settings: text size, suggestions, reminder days and time, breaks, and the list of changes you can undo.</li>
+<li>Kept apart, in separate files that Android backup never copies: your "It hurt" answers (which machines you left out, and when) and the locker note; and, for the club lists, your anonymous contributor number and its key, your deletion code, which clubs you share with, the answers waiting to be sent and the club lists you looked at.</li>
+</ul>
+<p>Kasrat never asks for your name, email address, age, body weight, height or anything about food.</p>
+<h2>Club lists: what you share, and only if you say yes</h2>
+<p>Members keep each club's machine list right together. Looking at a club's list needs nothing from you: the app downloads the public list, an ordinary web request that carries your network address and the club you opened.</p>
+<p>Sharing is off until you turn it on for a club ("Sharing for this club"; one switch per club, all listed in Settings). Before your first share or answer, the app shows the rules for shared lists and asks you to agree. Then, and only for that club:</p>
+<ul>
+<li>What is shared: the catalogue type of each machine and how many there are (for example "Leg press ×2"), and your "It's here" and "It's gone from the club" answers. Your own machines that are not in the catalogue are never sent. (A later version may share the heaviest number on a machine's stack and the dumbbell range; this policy will say so before it does.)</li>
+<li>Reports are the one exception to the switch: when you report a mistake in a club's list, by picking a reason from a fixed list, the report is sent even if sharing is off for that club, because it is about the list. It still needs the rules accepted and goes under the same random number.</li>
+<li>What is never shared: your plan, your workouts, your weights, your notes, your photos, your location, your "It hurt" answers, and anything you typed.</li>
+<li>Who you are to the server: at your first share, the app asks Firebase App Check (which uses Google Play Integrity) to confirm it is a real copy of Kasrat on a real phone, and the server then gives this copy of the app a random contributor number. No email, no Google account, no name. Your answers to a club are shown under a short code made from that number and the club ("Member 7F3K"), which is different at each club, so your answers at two clubs cannot be linked by others.</li>
+<li>When it goes: your answers wait on the phone and are sent 1 to 3 days later, at the first time you open the app after that, so nobody can tell when you train. Dates in the public lists are months, never days or times.</li>
+<li>What the server keeps: your answers for each club, a record of which clubs your contributor number answered for (so you can undo or delete your answers), the day your number was made, and daily counts that stop misuse. Access logs are off, so the time you opened the app is not kept either.</li>
+<li>Who can see it: the club lists are public (anyone can read them, in the app and later on the web): the machines, how many, how many members said so, their short codes and the month. They are published under the ODbL licence.</li>
+<li>Who handles it: the lists live on Cloudflare (Workers and D1 databases), which processes this data on our behalf. The databases are kept in the European Union. App Check is run by Google (Firebase).</li>
+<li>How long: an answer stays until you change it or delete your shared data. Turning sharing off for a club takes back what was still waiting to be sent there. Contributor numbers with no activity for 13 months are deleted, and what they shared is unlinked from them.</li>
+</ul>
+<h2>What the app sends</h2>
+<ul>
+<li>Crash reports (Firebase Crashlytics), whatever you choose. If the app crashes, a report is sent so the fault can be fixed. It holds the technical trace, the app version, your phone's model, maker and Android version, the phone's state at that moment (memory and storage in use, battery, screen orientation, whether it is rooted) and a random installation number.</li>
+<li>Visit notes, whatever you choose. Each time the app opens, Crashlytics also sends a short note that a visit started: a random visit number, the time, the installation number, the app version and your phone's model. It tells us what share of visits end in a crash.</li>
+<li>Settings (Firebase Remote Config), whatever you choose. When the app starts, about twice a day at most, it asks Firebase where this policy and the terms live. The request carries the installation number, the app version, your phone's model and Android version, your language and region setting, your time zone and your network address. What comes back is the two addresses, nothing else.</li>
+<li>App Check (Firebase), only when you share. Before an answer is sent, the app asks Google Play Integrity, through Firebase, to confirm this is a real copy of the app on a real phone. That check carries the app's package name and signature and facts about the phone's integrity, not anything you entered.</li>
+<li>The policy and the terms themselves are published at zilloris.com. Opening one in the app downloads that page: an ordinary web request that carries your network address and nothing of yours.</li>
+</ul>
+<p>Firebase is run for us by Google LLC, which processes this data on our behalf under Google's privacy policy. Crash reports and visit notes are deleted on Google's standard schedule. There is no account, so none of it can be looked up by who you are.</p>
+<h2>What leaves the phone because you send it</h2>
+<ul>
+<li>"Share Kasrat" hands a line with the Google Play link to Android's share sheet. You choose the app it goes to.</li>
+<li>"Contact" and "Not in the list? Tell us" open your email app with our address filled in. What you write is sent by your email app, under its terms.</li>
+<li>The test counters screen (for testers only) can copy a short summary of counts to your clipboard. It never includes your "It hurt" answers. You decide whether to paste it anywhere.</li>
+</ul>
+<h2>Permissions</h2>
+<ul>
+<li>Network: used only for what is described above: the club lists, crash reports and visit notes, the settings request, App Check when you share, and the download of this policy and the terms. Everything else in the app works without a connection.</li>
+<li>Notifications: used only for the training reminders you switch on, at the time you choose. Each reminder is scheduled and created on your phone; there is no push service. A reminder shows the day's name (for example "Day 3 today: Upper body") and can appear on your lock screen; Android's notification settings can hide it.</li>
+<li>Run at start-up: lets the app book your reminders again after the phone restarts, the app updates, or the clock or time zone changes. It does nothing else.</li>
+<li>On Infinix, Tecno and itel phones, the app checks whether the phone maker's start-up manager is installed, so it can open it for you if reminders do not come. It reads nothing from it.</li>
+</ul>
+<p>The app has no camera, location, contacts or storage permission. Finding your club works from the town you type, which stays on the phone.</p>
+<h2>Pictures and data in the app</h2>
+<p>The machine pictures are our own renders made on the Z-Anatomy model (CC BY-SA 4.0); the drawings of the rarer machines are based on Everkinetic (CC BY-SA 4.0). The exercise and muscle data come from free-exercise-db (public domain) and wger (CC BY-SA). Clubs come from OpenStreetMap (© OpenStreetMap contributors, ODbL). When the app shows photos and videos of real machines, they were taken by us in gyms that agreed, with nobody in the picture. Viewing them sends nothing.</p>
+<h2>Backup</h2>
+<p>If you have Android backup switched on, Android may copy the app's database and its settings file into your own Google account, or move them to a new phone when you transfer your data. It is your account, not ours: we have no access to it.</p>
+<p>That copy holds your gyms, machines, linked clubs, plan, workout log and settings. It never holds the separate files with your "It hurt" answers, the locker note, or your club-list contributor number, deletion code and waiting answers. A left-out row appears in the backed-up log as a skipped row, with no reason.</p>
+<p>You can turn backup off in Android's own settings, and the app will not mind.</p>
+<h2>Deleting your data</h2>
+<p>Uninstalling Kasrat removes everything it stored on your phone. Android's "Clear storage" for the app does the same. A copy already taken by Android backup is removed through Android's backup settings, since it is in your Google account and not somewhere the app can reach.</p>
+<p>What you shared to the club lists is removed with "Delete my shared data" in Settings: it takes back every answer from this phone and forgets your contributor number. Settings also shows a deletion code; without the phone, send that code to <a href="mailto:support@zilloris.com">support@zilloris.com</a> and we delete it for you. Reports stay, without anything that links them to you, so that decisions about them can still be checked.</p>
+<p>Crash reports and visit notes already sent to Firebase are held under random numbers with no account attached, expire on Google's schedule, and cannot be traced back to you by us.</p>
+<h2>Children</h2>
+<p>Kasrat is not directed at anyone under 16. It never asks anyone for a name, an email address, an age or anything else that says who they are. What it sends carries only random numbers for this copy of the app and is not tied to a person of any age.</p>
+<h2>Changes</h2>
+<p>If this policy changes, the updated date above changes with it. The app downloads this page when you open the policy inside it, so it shows the current text; the copy built into the app is only what it falls back to when there is no connection, and the app says which one you are reading.</p>
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+  </div>
+</main>
+
+<footer class="appfoot">
+  <div class="inner">
+    <span>Kasrat is made by <a href="/">Zilloris</a></span>
+    <a href="mailto:support@zilloris.com">support@zilloris.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

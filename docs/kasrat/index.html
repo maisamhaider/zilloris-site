@@ -1,0 +1,80 @@
+<!doctype html>
+<!--
+  One app page: About, Privacy or Terms. build.ps1 fills the {{...}} slots.
+
+  THE APPS PARSE THIS PAGE. One Page and Manuscript download the published
+  policy and set it in their own type, so this structure is a contract, not
+  just a layout:
+
+    <main>            the document region - the apps read inside it
+    <h1>              the document's title
+    <h2>              a section; three or more, or the app refuses the page
+    header, nav, footer   skipped by the parsers - keep chrome outside <main>
+
+  Manuscript's documents also carry classes the parser reads: num, effective,
+  intro, short, warning, legalese. Change any of this and both apps fall back
+  to the older text built into them, with nothing to tell us it happened.
+  Check with the app's parser after a structural change (manuscript's
+  LegalHtmlTest, one-page's LegalHtmlTest), not by eye.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kasrat — Train on the machines your gym really has</title>
+<meta name="description" content="Kasrat for Kasrat, an Android app by Zilloris.">
+<link rel="canonical" href="https://zilloris.com/kasrat/">
+<meta property="og:title" content="Kasrat — Train on the machines your gym really has">
+<meta property="og:url" content="https://zilloris.com/kasrat/">
+<link rel="icon" href="/assets/icons/kasrat.png" type="image/png">
+<link rel="stylesheet" href="/assets/app-base.css">
+<link rel="stylesheet" href="/assets/themes/kasrat.css">
+</head>
+<body class="app-kasrat doc-about">
+
+<header class="apphead">
+  <div class="inner">
+    <a class="brand" href="/kasrat/">
+      <img class="brand-icon" src="/assets/icons/kasrat.png" alt="" width="48" height="48">
+      <span class="brand-name">Kasrat</span>
+    </a>
+    <nav class="tabs" aria-label="Kasrat"><a href="/kasrat/" aria-current="page">About</a><a href="/kasrat/privacy/">Privacy</a><a href="/kasrat/terms/">Terms</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <h1><span class="mark">Kasrat</span></h1>
+  <p class="status">In development</p>
+  <div class="body">
+<p class="lede">Train on the machines <em>your gym</em> really has.</p>
+<p>Kasrat starts from your gym, not from a generic workout. Tick the machines your gym has, once, and get a month plan that uses only them, with a second choice for every exercise when a machine is busy.</p>
+
+<h2>Tick your gym's machines</h2>
+<p>Main machines and rarer ones, grouped by body area. A cable station or a Smith machine counts as everything it can do. Training at two gyms? Tick both, and each day says where it works best.</p>
+
+<h2>A plan that always has a second choice</h2>
+<p>Every exercise comes with a first choice, a second choice and stand-ins at your gym, so a busy machine never stops the workout. A weekly check makes sure no muscle group is left out.</p>
+
+<h2>See what each machine works</h2>
+<p>Each machine has a picture of the body on it, with a switch from skin to the muscles at work, how to use it, and the alternatives your gym has.</p>
+
+<h2>One tap at the machine</h2>
+<p>Tick each exercise as you finish it. Kasrat adds a rep when a session goes well, and asks before you go heavier, in the machine's own weight steps. It can remind you on your training days.</p>
+
+<h2>Kept on your phone</h2>
+<p>No account and no sign-up. Your plan, your log and your weights stay on your phone. The details are in the <a href="/kasrat/privacy/">privacy policy</a>.</p>
+
+<h2>Free to download</h2>
+<p>Kasrat is free, with no ads and nothing to buy inside it. In English and French.</p>
+  </div>
+</main>
+
+<footer class="appfoot">
+  <div class="inner">
+    <span>Kasrat is made by <a href="/">Zilloris</a></span>
+    <a href="mailto:support@zilloris.com">support@zilloris.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

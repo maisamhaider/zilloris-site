@@ -115,6 +115,17 @@
       "statusText": "In development",
       "package": "com.zilloris.pontil",
       "accent": "#FF8A2A"
+    },
+    {
+      "id": "kasrat",
+      "name": "Kasrat",
+      "onPlay": false,
+      "pages": true,
+      "line": "Train on the machines your gym really has.",
+      "status": "dev",
+      "statusText": "In development",
+      "accent": "#FC3458",
+      "icon": "kasrat/design/icon/final/play-icon-512.png"
     }
   ]
 }

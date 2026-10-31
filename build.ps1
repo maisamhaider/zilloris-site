@@ -57,6 +57,8 @@ $fonts = @{
   'mother-tongue\app\src\main\assets\fonts\baloo2.ttf'            = 'baloo2.ttf'
   'mother-tongue\app\src\main\assets\fonts\mukta_regular.ttf'     = 'mukta-400.ttf'
   'mother-tongue\app\src\main\assets\fonts\mukta_bold.ttf'        = 'mukta-700.ttf'
+  'kasrat\app\src\main\res\font\mona_sans.ttf'                    = 'mona-sans.ttf'
+  'kasrat\app\src\main\res\font\hanken_grotesk.ttf'               = 'hanken-grotesk.ttf'
 }
 foreach ($f in $fonts.Keys) {
   Copy-Item (Join-Path $root $f) (Join-Path $docs "assets\fonts\$($fonts[$f])")

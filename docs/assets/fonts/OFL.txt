@@ -1,6 +1,12 @@
 The fonts in this folder are served under the SIL Open Font License 1.1.
 Each copyright line below is read from the font file itself.
 
+mona-sans.ttf
+Copyright 2022 The Mona Sans Project Authors (https://github.com/github/mona-sans), with Reserved Font Name "Mona"
+
+hanken-grotesk.ttf
+Copyright 2021 The Hanken Grotesk Project Authors (https://github.com/marcologous/hanken-grotesk)
+
 newsreader-italic.ttf
 Copyright 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader)
 

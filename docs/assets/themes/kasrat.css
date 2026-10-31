@@ -1,0 +1,34 @@
+/* Kasrat - "Under the Skin": anatomy and steel. Ice studio ground, black studio
+   ink, Blood red for the words that matter (solid, never glass: owner, 31 Oct
+   2026). Tokens from kasrat's ui/theme/Theme.kt. Mona Sans (weight 800, width
+   125) sets the headings as it sets the app's big headlines; Hanken Grotesk
+   sets the words. */
+
+@font-face { font-family: "Mona Sans"; font-weight: 200 900; font-stretch: 75% 125%; font-display: swap;
+             src: url("/assets/fonts/mona-sans.ttf") format("truetype-variations"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 100 900; font-display: swap;
+             src: url("/assets/fonts/hanken-grotesk.ttf") format("truetype-variations"); }
+
+:root {
+  --ground: #EEF1F4; --card: #FFFFFF; --ink: #0D1014; --muted: #4A525A;
+  --line: rgba(13, 16, 20, .12); --blood: #FC3458; --steel: #8D96A0;
+  --display-font: "Mona Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body-font: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono-font: ui-monospace, Consolas, monospace;
+  --link: #C4123A; --accent-strong: #C4123A; --code-bg: #E1E6EB;
+}
+
+h1, h2, h3, .brand-name { font-family: var(--display-font); font-weight: 800; font-stretch: 125%; letter-spacing: -.035em; }
+h1 { font-size: clamp(36px, 6.5vw, 54px); line-height: 1.02; }
+h2 { font-size: clamp(21px, 3vw, 26px); margin-top: 2em; letter-spacing: -.02em; }
+.brand-name { font-size: 24px; }
+
+.apphead { border-bottom: 1px solid var(--line); }
+.tabs a { font-family: var(--body-font); font-weight: 600; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+.tabs a[aria-current="page"] { color: var(--ink); border-bottom: 2px solid var(--blood); }
+
+p.lede { font-family: var(--display-font); font-weight: 800; font-stretch: 125%; letter-spacing: -.03em; font-size: clamp(22px, 3.4vw, 28px); line-height: 1.15; }
+p.lede em { font-style: normal; color: var(--blood); }
+p.effective, .updated { color: var(--muted); font-size: 14px; }
+a { color: var(--link); text-underline-offset: 3px; }
+hr { border: 0; border-top: 1px solid var(--line); }
