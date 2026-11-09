@@ -47,13 +47,13 @@
 
   <div class="body">
 <p><strong>App:</strong> Kasrat (<code>com.zilloris.kasrat</code>)<br>
-<strong>Updated:</strong> 2 November 2026<br>
+<strong>Updated:</strong> 9 November 2026<br>
 <strong>Contact:</strong> <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
 <h2>The short version</h2>
 <p>Your training stays on your phone. Your plan, your workout log, your weights, your notes and your "It hurt" answers are stored on your device and the app never uploads them. There is no account, no sign-in and no sync.</p>
 <p>Only what you choose to share about your club leaves the phone: the machine types and how many there are, and your answers about them. That is shared under a random number, never your name, and only after you say yes.</p>
 <p>Whatever you choose, the app sends Google Firebase a few small things: a crash report if the app breaks, a short note each time the app opens, and a request for a few settings, such as where this policy lives. None of them carries your training or anything you wrote.</p>
-<p>There are no ads, no advertising identifier and no usage analytics, and nothing is sold or used to profile you. Android's own backup, described below, can copy part of the app's data into your own Google account if you have device backup switched on.</p>
+<p>There are no ads and no advertising identifier, and nothing is sold or used to profile you. Usage counts (Firebase Analytics) go only if you say yes to &quot;Help improve Kasrat?&quot;, and you can turn them off in Settings. Android's own backup, described below, can copy part of the app's data into your own Google account if you have device backup switched on.</p>
 <h2>What the app stores, and where</h2>
 <p>In the app's own private storage on your phone:</p>
 <ul>
@@ -81,6 +81,7 @@
 </ul>
 <h2>What the app sends</h2>
 <ul>
+<li>Usage counts (Firebase Analytics), only if you say yes. The first run asks &quot;Help improve Kasrat?&quot;; the answer starts as No, and nothing is collected before you say yes. If you do, the app sends Google Firebase which screens and parts of the app you use: when a plan is made, when a workout starts and ends, when a gym is added, when you open a machine's picture (with the catalogue name of that machine) or a club's inside view. Firebase adds a random installation number, the app version, your phone's model and Android version, your language, and your rough region (country and area, worked out by Google from your network address, which it does not keep). It never carries anything you typed (no gym names, no notes), no weights, no body measurements and no &quot;It hurt&quot; answers. The advertising identifier is never read, ad storage and ad personalisation are always off, and nothing is used for ads. Settings > &quot;Share anonymous usage&quot; turns it off at any time; turning it off also deletes what this phone had stored for it. Firebase keeps these counts for 2 months.</li>
 <li>Crash reports (Firebase Crashlytics), whatever you choose. If the app crashes, a report is sent so the fault can be fixed. It holds the technical trace, the app version, your phone's model, maker and Android version, the phone's state at that moment (memory and storage in use, battery, screen orientation, whether it is rooted) and a random installation number.</li>
 <li>Visit notes, whatever you choose. Each time the app opens, Crashlytics also sends a short note that a visit started: a random visit number, the time, the installation number, the app version and your phone's model. It tells us what share of visits end in a crash.</li>
 <li>Settings (Firebase Remote Config), whatever you choose. When the app starts, about twice a day at most, it asks Firebase where this policy and the terms live. The request carries the installation number, the app version, your phone's model and Android version, your language and region setting, your time zone and your network address. What comes back is the two addresses, nothing else.</li>
@@ -98,7 +99,7 @@
 </ul>
 <h2>Permissions</h2>
 <ul>
-<li>Network: used only for what is described above: the club lists, crash reports and visit notes, the settings request, App Check when you share, the map tiles, and the download of this policy and the terms. Everything else in the app works without a connection.</li>
+<li>Network: used only for what is described above: the club lists, crash reports and visit notes, usage counts if you said yes, the settings request, App Check when you share, the map tiles, and the download of this policy and the terms. Everything else in the app works without a connection.</li>
 <li>Notifications: used only for the training reminders you switch on, at the time you choose. Each reminder is scheduled and created on your phone; there is no push service. A reminder shows the day's name (for example "Day 3 today: Upper body") and can appear on your lock screen; Android's notification settings can hide it.</li>
 <li>Run at start-up: lets the app book your reminders again after the phone restarts, the app updates, or the clock or time zone changes. It does nothing else.</li>
 <li>On Infinix, Tecno and itel phones, the app checks whether the phone maker's start-up manager is installed, so it can open it for you if reminders do not come. It reads nothing from it.</li>
@@ -116,7 +117,7 @@
 <h2>Deleting your data</h2>
 <p>Uninstalling Kasrat removes everything it stored on your phone. Android's "Clear storage" for the app does the same. A copy already taken by Android backup is removed through Android's backup settings, since it is in your Google account and not somewhere the app can reach.</p>
 <p>What you shared to the club lists is removed with "Delete my shared data" in Settings: it takes back every answer from this phone and forgets your contributor number. Settings also shows a deletion code; without the phone, send that code to <a href="mailto:support@zilloris.com">support@zilloris.com</a> and we delete it for you. Reports stay, without anything that links them to you, so that decisions about them can still be checked.</p>
-<p>Crash reports and visit notes already sent to Firebase are held under random numbers with no account attached, expire on Google's schedule, and cannot be traced back to you by us.</p>
+<p>Usage counts stop as soon as you turn &quot;Share anonymous usage&quot; off, and what was waiting on the phone is deleted. Crash reports, visit notes and usage counts already sent to Firebase are held under random numbers with no account attached, expire on Google's schedule, and cannot be traced back to you by us.</p>
 <h2>Children</h2>
 <p>Kasrat is not directed at anyone under 16. It never asks anyone for a name, an email address, an age or anything else that says who they are. What it sends carries only random numbers for this copy of the app and is not tied to a person of any age.</p>
 <h2>Changes</h2>
