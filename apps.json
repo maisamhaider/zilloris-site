@@ -75,13 +75,13 @@
     {
       "id": "arkiv",
       "name": "Arkiv",
-      "onPlay": false,
+      "onPlay": true,
       "pages": true,
       "line": "A safe place for your family's papers.",
-      "status": "dev",
-      "statusText": "In development",
+      "status": "testing",
+      "statusText": "In testing on Google Play",
       "accent": "#3F6FB0",
-      "icon": ""
+      "icon": "arkiv/store/play/icon-512.png"
     },
     {
       "id": "atomiser",
