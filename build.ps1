@@ -159,6 +159,11 @@ foreach ($a in $paged) {
   # An app with accounts also has "Delete account" (Google Play asks for a web page that says how):
   # content/<id>/delete-account.html, only where it exists
   $appDocs = @($docsList)
+  # An app may also publish its licences and credits (the list its Settings show): content/<id>/licences.html,
+  # only where it exists
+  if (Test-Path (Join-Path $here "content\$($a.id)\licences.html")) {
+    $appDocs += @{ doc = 'licences'; file = 'licences.html'; path = 'licences/'; label = 'Licences' }
+  }
   if (Test-Path (Join-Path $here "content\$($a.id)\delete-account.html")) {
     $appDocs += @{ doc = 'delete-account'; file = 'delete-account.html'; path = 'delete-account/'; label = 'Delete account' }
   }
