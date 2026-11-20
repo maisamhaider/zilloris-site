@@ -50,8 +50,6 @@ $fonts = @{
   'note-taking\app\src\main\res\font\inter_semibold.ttf'          = 'inter-600.ttf'
   'arkiv\app\src\main\res\font\rubik_regular.ttf'                 = 'rubik-400.ttf'
   'arkiv\app\src\main\res\font\rubik_semibold.ttf'                = 'rubik-600.ttf'
-  'sabr\app\src\main\res\font\cormorant_garamond_italic.ttf'      = 'cormorant-garamond-italic.ttf'
-  'sabr\app\src\main\res\font\karla.ttf'                          = 'karla.ttf'
   'pontil\app\src\main\res\font\newsreader_italic.ttf'            = 'newsreader-italic.ttf'
   'pontil\app\src\main\res\font\manrope.ttf'                      = 'manrope.ttf'
   'mother-tongue\app\src\main\assets\fonts\baloo2.ttf'            = 'baloo2.ttf'
@@ -63,6 +61,10 @@ $fonts = @{
 foreach ($f in $fonts.Keys) {
   Copy-Item (Join-Path $root $f) (Join-Path $docs "assets\fonts\$($fonts[$f])")
 }
+# Sabr's pages use two variable fonts (Cormorant Garamond Italic, Karla). On 16 Nov 2026 the app's own repo moved
+# to one static file per weight (variable fonts break on Android 16), so those two are no longer there to copy:
+# the site keeps its own copies in src/fonts, and Sabr's pages look as they always have.
+Copy-Item (Join-Path $here 'src\fonts\*.ttf') (Join-Path $docs 'assets\fonts')
 # The Open Font License lets these be shared freely, on condition its text
 # travels with them. Add a font above and its copyright line goes in this file.
 Copy-Item (Join-Path $here 'src\fonts-OFL.txt') (Join-Path $docs 'assets\fonts\OFL.txt')
@@ -156,7 +158,18 @@ $docsList = @(
 function PlainText([string]$s) { ([System.Net.WebUtility]::HtmlDecode(($s -replace '<[^>]+>', '')) -replace '\s+', ' ').Trim().ToLower() }
 $pageCount = 0
 foreach ($a in $paged) {
-  foreach ($d in $docsList) {
+  # An app with accounts also has "Delete account" (Google Play asks for a web page that says how):
+  # content/<id>/delete-account.html, only where it exists
+  $appDocs = @($docsList)
+  # An app may also publish its licences and credits (the list its Settings show): content/<id>/licences.html,
+  # only where it exists
+  if (Test-Path (Join-Path $here "content\$($a.id)\licences.html")) {
+    $appDocs += @{ doc = 'licences'; file = 'licences.html'; path = 'licences/'; label = 'Licences' }
+  }
+  if (Test-Path (Join-Path $here "content\$($a.id)\delete-account.html")) {
+    $appDocs += @{ doc = 'delete-account'; file = 'delete-account.html'; path = 'delete-account/'; label = 'Delete account' }
+  }
+  foreach ($d in $appDocs) {
     $src = Join-Path $here "content\$($a.id)\$($d.file)"
     if (-not (Test-Path $src)) { throw "Missing $src - every app with pages=true needs about, privacy and terms" }
     $raw   = [System.IO.File]::ReadAllText($src, $utf8)
@@ -184,7 +197,7 @@ foreach ($a in $paged) {
       }
     }
 
-    $nav = ($docsList | ForEach-Object {
+    $nav = ($appDocs | ForEach-Object {
       $cur = if ($_.doc -eq $d.doc) { ' aria-current="page"' } else { '' }
       "<a href=""/$($a.id)/$($_.path)""$cur>$($_.label)</a>"
     }) -join ''
