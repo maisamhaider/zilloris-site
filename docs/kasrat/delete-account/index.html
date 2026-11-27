@@ -1,0 +1,90 @@
+<!doctype html>
+<!--
+  One app page: About, Privacy or Terms. build.ps1 fills the {{...}} slots.
+
+  THE APPS PARSE THIS PAGE. One Page and Manuscript download the published
+  policy and set it in their own type, so this structure is a contract, not
+  just a layout:
+
+    <main>            the document region - the apps read inside it
+    <h1>              the document's title
+    <h2>              a section; three or more, or the app refuses the page
+    header, nav, footer   skipped by the parsers - keep chrome outside <main>
+
+  Manuscript's documents also carry classes the parser reads: num, effective,
+  intro, short, warning, legalese. Change any of this and both apps fall back
+  to the older text built into them, with nothing to tell us it happened.
+  Check with the app's parser after a structural change (manuscript's
+  LegalHtmlTest, one-page's LegalHtmlTest), not by eye.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your account — Kasrat</title>
+<meta name="description" content="Delete your account for Kasrat, an Android app by Zilloris.">
+<link rel="canonical" href="https://zilloris.com/kasrat/delete-account/">
+<meta property="og:title" content="Delete your account — Kasrat">
+<meta property="og:url" content="https://zilloris.com/kasrat/delete-account/">
+<link rel="icon" href="/assets/icons/kasrat.png" type="image/png">
+<link rel="stylesheet" href="/assets/app-base.css">
+<link rel="stylesheet" href="/assets/themes/kasrat.css">
+</head>
+<body class="app-kasrat doc-delete-account">
+
+<header class="apphead">
+  <div class="inner">
+    <a class="brand" href="/kasrat/">
+      <img class="brand-icon" src="/assets/icons/kasrat.png" alt="" width="48" height="48">
+      <span class="brand-name">Kasrat</span>
+    </a>
+    <nav class="tabs" aria-label="Kasrat"><a href="/kasrat/">About</a><a href="/kasrat/privacy/">Privacy</a><a href="/kasrat/terms/">Terms</a><a href="/kasrat/licences/">Licences</a><a href="/kasrat/delete-account/" aria-current="page">Delete account</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <h1><span class="mark">Delete your account</span></h1>
+
+  <div class="body">
+<p><strong>App:</strong> Kasrat (<code>com.zilloris.kasrat</code>), by Zilloris<br>
+<strong>Updated:</strong> 15 November 2026<br>
+<strong>Contact:</strong> <a href="mailto:support@zilloris.com">support@zilloris.com</a></p>
+<p>Kasrat works without an account. It asks you to sign in only when you share with a club's machine list or add a club. If you signed in, you can delete that account at any time, in the app or by email.</p>
+<h2>In the app</h2>
+<ol>
+<li>Open Kasrat, then <strong>Settings</strong>.</li>
+<li>Under <strong>Account</strong>, tap <strong>Delete my account</strong>.</li>
+<li>Confirm. If your account has a password, type it once more: this proves it is you. It is done at once.</li>
+</ol>
+<h2>Without the app</h2>
+<p>Write to <a href="mailto:support@zilloris.com?subject=Delete%20my%20Kasrat%20account">support@zilloris.com</a> from the email address you signed in with, and say "Delete my Kasrat account". We answer to that address to be sure it is you, and delete the account within 30 days.</p>
+<h2>What is deleted</h2>
+<ul>
+<li>Your account: the sign-in (your email address, and your password if you chose one, kept for us by Google's Firebase Authentication) and the account number on our server.</li>
+<li>What you shared with clubs: your answers about machines, where machines are, and gym facts are taken back from the lists.</li>
+<li>The link between you and anything that stays (see below).</li>
+</ul>
+<h2>What is kept</h2>
+<ul>
+<li>Reports you sent about a mistake or a rule broken stay, because the law asks us to keep a record of them, but they no longer point to you.</li>
+<li>A club list's history keeps the line that a change was made, marked "deleted" instead of your member code.</li>
+<li>Crash reports already sent to Firebase Crashlytics are deleted on Google's standard schedule; they hold no account.</li>
+</ul>
+<h2>What was never ours</h2>
+<p>Your plan, your workouts, your weights and your notes live only on your phone. Deleting the account does not touch them, and signing out does not either. To remove them, delete the app's data or uninstall Kasrat.</p>
+<h2>Accounts nobody uses</h2>
+<p>An account that has not been used for 13 months is deleted by itself.</p>
+<h2>En français</h2>
+<p>Dans l'application : <strong>Réglages</strong>, <strong>Compte</strong>, <strong>Supprimer mon compte</strong>. Sans l'application : écrivez à <a href="mailto:support@zilloris.com?subject=Supprimer%20mon%20compte%20Kasrat">support@zilloris.com</a> depuis l'adresse du compte ; le compte est supprimé sous 30 jours. Sont supprimés : le compte (votre adresse e-mail, gardée pour nous par Firebase Authentication de Google, et le numéro de compte sur notre serveur) et ce que vous avez partagé avec les salles. Les signalements restent, sans lien avec vous. Votre programme et vos séances ne sont que sur votre téléphone : rien n'y change.</p>
+  </div>
+</main>
+
+<footer class="appfoot">
+  <div class="inner">
+    <span>Kasrat is made by <a href="/">Zilloris</a></span>
+    <a href="mailto:support@zilloris.com">support@zilloris.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
